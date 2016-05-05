@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="32518e7f-18c5-46c3-9037-3b91b659cecf" name="Default" comment="" />
+    <ignored path="projects.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="projects" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/laravel-express/resources/lang/pt-BR/pagination.php" />
+        <option value="$PROJECT_DIR$/laravel-express/resources/lang/pt-BR/passwords.php" />
+        <option value="$PROJECT_DIR$/laravel-express/resources/lang/pt-BR/validation.php" />
+        <option value="$PROJECT_DIR$/laravel-express/bootstrap/app.php" />
+        <option value="$PROJECT_DIR$/laravel-express/app/Providers/AppServiceProvider.php" />
+        <option value="$PROJECT_DIR$/laravel-express/app/Tags.php" />
+        <option value="$PROJECT_DIR$/laravel-express/database/migrations/2016_04_27_171230_create_tags_table.php" />
+        <option value="$PROJECT_DIR$/laravel-express/app/Tag.php" />
+        <option value="$PROJECT_DIR$/laravel-express/database/seeds/TagTableSeeder.php" />
+        <option value="$PROJECT_DIR$/laravel-express/database/seeds/CommentsTableSeeder.php" />
+        <option value="$PROJECT_DIR$/laravel-express/resources/views/posts/show.blade.php" />
+        <option value="$PROJECT_DIR$/laravel-express/app/Comment.php" />
+        <option value="$PROJECT_DIR$/laravel-express/app/Http/Controllers/PostsController.php" />
+        <option value="$PROJECT_DIR$/laravel-express/composer.json" />
+        <option value="$PROJECT_DIR$/laravel-express/config/app.php" />
+        <option value="$PROJECT_DIR$/laravel-express/resources/views/posts/index.blade.php" />
+        <option value="$PROJECT_DIR$/laravel-express/resources/views/layouts/default.blade.php" />
+        <option value="$PROJECT_DIR$/laravel-express/public/assets/css/main.css" />
+        <option value="$PROJECT_DIR$/laravel-express/app/Http/Requests/PostRequest.php" />
+        <option value="$PROJECT_DIR$/laravel-express/resources/views/admin/posts/_form.blade.php" />
+        <option value="$PROJECT_DIR$/laravel-express/resources/views/admin/posts/index.blade.php" />
+        <option value="$PROJECT_DIR$/laravel-express/database/migrations/2016_04_27_171431_create_tags_post_table.php" />
+        <option value="$PROJECT_DIR$/laravel-express/resources/views/admin/posts/create.blade.php" />
+        <option value="$PROJECT_DIR$/laravel-express/app/Post.php" />
+        <option value="$PROJECT_DIR$/laravel-express/resources/views/admin/posts/edit.blade.php" />
+        <option value="$PROJECT_DIR$/laravel-express/database/seeds/DatabaseSeeder.php" />
+        <option value="$PROJECT_DIR$/laravel-express/database/factories/ModelFactory.php" />
+        <option value="$PROJECT_DIR$/laravel-express/app/Http/Controllers/PostsAdminController.php" />
+        <option value="$PROJECT_DIR$/laravel-express/resources/views/auth/login.blade.php" />
+        <option value="$PROJECT_DIR$/laravel-express/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/angularjs/angular.html" />
+        <option value="$PROJECT_DIR$/angularjs/angular3.html" />
+        <option value="$PROJECT_DIR$/angularjs/angular4.html" />
+        <option value="$PROJECT_DIR$/angularjs/angular6.html" />
+        <option value="$PROJECT_DIR$/angularjs/modulos/modulo1.html" />
+        <option value="$PROJECT_DIR$/angularjs/aulas/listar.html" />
+        <option value="$PROJECT_DIR$/angularjs/index.html" />
+        <option value="$PROJECT_DIR$/angularjs/adicionar.html" />
+        <option value="$PROJECT_DIR$/angularjs/aulas/editar.html" />
+        <option value="$PROJECT_DIR$/angularjs/editar.html" />
+        <option value="$PROJECT_DIR$/angularjs/listar.html" />
+        <option value="$PROJECT_DIR$/angularjs/pessoas.js" />
+        <option value="$PROJECT_DIR$/angularjs/pessoas/Pessoas.js" />
+        <option value="$PROJECT_DIR$/angularjs/pessoas/PessoasSrv.js" />
+        <option value="$PROJECT_DIR$/angularjs/index.php" />
+        <option value="$PROJECT_DIR$/angularjs/pessoas/PessoasCtrl.js" />
+        <option value="$PROJECT_DIR$/angularjs/pessoas/templates/template.html" />
+        <option value="$PROJECT_DIR$/pessoas/templates/template.html" />
+        <option value="$PROJECT_DIR$/pessoas/Pessoas.js" />
+        <option value="$PROJECT_DIR$/pessoas/PessoasSrv.js" />
+        <option value="$PROJECT_DIR$/pessoas/PessoasCtrl.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsBuildToolPackageJson" detection-done="true" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-1" />
+    <option name="y" value="30" />
+    <option name="width" value="1368" />
+    <option name="height" value="739" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projects" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/angularjs/modulos" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js-jscs-nodeInterpreter" value="/usr/bin/node" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pessoas/templates" />
+      <recent name="$PROJECT_DIR$/angularjs/pessoas/templates" />
+      <recent name="$PROJECT_DIR$/angularjs" />
+      <recent name="$PROJECT_DIR$/angularjs/aulas" />
+      <recent name="$PROJECT_DIR$/PHPOO1" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/angularjs/aulas" />
+      <recent name="$PROJECT_DIR$/angularjs" />
+      <recent name="$PROJECT_DIR$/angularjs/modulos" />
+      <recent name="$PROJECT_DIR$/laravel-express/resources/views/admin/posts" />
+      <recent name="$PROJECT_DIR$/laravel-express/database/seeds" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="32518e7f-18c5-46c3-9037-3b91b659cecf" name="Default" comment="" />
+      <created>1460483746188</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1460483746188</updated>
+      <workItem from="1460483747958" duration="2401000" />
+      <workItem from="1460634283209" duration="4268000" />
+      <workItem from="1460652301609" duration="1380000" />
+      <workItem from="1460984454563" duration="5805000" />
+      <workItem from="1461069856854" duration="2351000" />
+      <workItem from="1461098569063" duration="126000" />
+      <workItem from="1461156624100" duration="5087000" />
+      <workItem from="1461594749046" duration="1261000" />
+      <workItem from="1461600910765" duration="5136000" />
+      <workItem from="1461678481482" duration="7784000" />
+      <workItem from="1461783586230" duration="3192000" />
+      <workItem from="1461846057013" duration="4070000" />
+      <workItem from="1461854772928" duration="103000" />
+      <workItem from="1461866951631" duration="8239000" />
+      <workItem from="1461934130283" duration="9651000" />
+      <workItem from="1461952245182" duration="962000" />
+      <workItem from="1462187662098" duration="15312000" />
+      <workItem from="1462273760263" duration="2137000" />
+      <workItem from="1462281862452" duration="5475000" />
+      <workItem from="1462465770943" duration="1199000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="85939000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-1" y="30" width="1368" height="739" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28038067" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/laravel-express/database/seeds/TagTableSeeder.php" />
+    <entry file="file://$PROJECT_DIR$/laravel-express/database/seeds/CommentsTableSeeder222.php" />
+    <entry file="file://$PROJECT_DIR$/laravel-express/database/seeds/PostsTagsTableSeeder.php" />
+    <entry file="file://$PROJECT_DIR$/laravel-express/database/seeds/CommentsTableSeeder.php" />
+    <entry file="file://$PROJECT_DIR$/laravel-express/app/Comment.php" />
+    <entry file="file://$PROJECT_DIR$/laravel-express/app/Http/Controllers/Controller.php" />
+    <entry file="file://$PROJECT_DIR$/laravel-express/app/Http/Controllers/PostsController.php" />
+    <entry file="file://$PROJECT_DIR$/laravel-express/config/app.php" />
+    <entry file="file://$PROJECT_DIR$/laravel-express/composer.json" />
+    <entry file="file://$PROJECT_DIR$/laravel-express/resources/views/layouts/default.blade.php" />
+    <entry file="file://$PROJECT_DIR$/laravel-express/resources/views/posts/show.blade.php" />
+    <entry file="file://$PROJECT_DIR$/laravel-express/public/assets/css/main.css" />
+    <entry file="file://$PROJECT_DIR$/laravel-express/app/Http/Requests/PostRequest.php" />
+    <entry file="file://$PROJECT_DIR$/laravel-express/resources/views/admin/posts/index.blade.php" />
+    <entry file="file://$PROJECT_DIR$/laravel-express/database/migrations/2016_04_27_171431_create_tags_post_table.php" />
+    <entry file="file://$PROJECT_DIR$/laravel-express/database/seeds/PostsTableSeeder.php" />
+    <entry file="file://$PROJECT_DIR$/laravel-express/database/seeds/DatabaseSeeder.php" />
+    <entry file="file://$PROJECT_DIR$/laravel-express/database/factories/ModelFactory.php" />
+    <entry file="file://$PROJECT_DIR$/laravel-express/resources/views/posts/index.blade.php" />
+    <entry file="file://$PROJECT_DIR$/laravel-express/resources/views/admin/posts/edit.blade.php" />
+    <entry file="file://$PROJECT_DIR$/laravel-express/resources/views/admin/posts/_form.blade.php" />
+    <entry file="file://$PROJECT_DIR$/laravel-express/app/Post.php" />
+    <entry file="file://$PROJECT_DIR$/laravel-express/resources/views/admin/posts/create.blade.php" />
+    <entry file="file://$PROJECT_DIR$/laravel-express/app/Http/Controllers/PostsAdminController.php" />
+    <entry file="file://$PROJECT_DIR$/laravel-express/resources/views/auth/login.blade.php" />
+    <entry file="file://$PROJECT_DIR$/laravel-express/app/Http/routes.php" />
+    <entry file="file://$PROJECT_DIR$/angularjs/aulas/modulos/modulo1.html" />
+    <entry file="file://$PROJECT_DIR$/angularjs/aulas/modulos/modulo2.html" />
+    <entry file="file://$PROJECT_DIR$/angularjs/aulas/angular.html" />
+    <entry file="file://$PROJECT_DIR$/angularjs/aulas/angular3.html" />
+    <entry file="file://$PROJECT_DIR$/angularjs/index.html" />
+    <entry file="file://$PROJECT_DIR$/angularjs/adicionar.html" />
+    <entry file="file://$PROJECT_DIR$/angularjs/editar.html" />
+    <entry file="file://$PROJECT_DIR$/angularjs/listar.html" />
+    <entry file="file://$PROJECT_DIR$/angularjs/aulas/angular4.html" />
+    <entry file="file://$PROJECT_DIR$/angularjs/pessoas.js" />
+    <entry file="file://$PROJECT_DIR$/angularjs/aulas/angular6.html" />
+    <entry file="file://$PROJECT_DIR$/angularjs/pessoas/Pessoas.js" />
+    <entry file="file://$PROJECT_DIR$/angularjs/pessoas/templates/wesley/template.html" />
+    <entry file="file://$PROJECT_DIR$/angularjs/aulas/index.html" />
+    <entry file="file://$PROJECT_DIR$/angularjs/pessoas/PessoasSrv.js" />
+    <entry file="file://$PROJECT_DIR$/angularjs/pessoas/PessoasCtrl.js" />
+    <entry file="file://$PROJECT_DIR$/angularjs/pessoas/templates/index.html" />
+    <entry file="file://$PROJECT_DIR$/angularjs/index.php" />
+    <entry file="file://$PROJECT_DIR$/angularjs/pessoas/templates/template.html" />
+    <entry file="file://$PROJECT_DIR$/pessoas/PessoasCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="63" column="30" selection-start-line="63" selection-start-column="30" selection-end-line="63" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pessoas/Pessoas.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="66" selection-start-line="15" selection-start-column="66" selection-end-line="15" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pessoas/templates/editar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pessoas/templates/novo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pessoas/templates/template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="49" column="61" selection-start-line="49" selection-start-column="61" selection-end-line="49" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pessoas/PessoasSrv.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
