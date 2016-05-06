@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="32518e7f-18c5-46c3-9037-3b91b659cecf" name="Default" comment="Inicio api, lista e adiciona">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+    <list default="true" id="32518e7f-18c5-46c3-9037-3b91b659cecf" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/projects.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ClientController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClientController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readme.md" afterPath="$PROJECT_DIR$/readme.md" />
     </list>
     <ignored path="projects.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,27 +29,107 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ClientController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ClientController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ClientController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="315">
+              <caret line="24" column="50" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SqlServerGrammar.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Schema/Grammars/SqlServerGrammar.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="151" column="129" selection-start-line="151" selection-start-column="129" selection-end-line="151" selection-end-column="129" />
               <folding>
-                <element signature="e#48#71#0#PHP" expanded="true" />
+                <marker date="1461762129000" expanded="true" signature="663:717" placeholder="select * fro... sysobjects" />
+                <marker date="1461762129000" expanded="true" signature="931:1104" placeholder="select col.n... columns" />
+                <marker date="1461762129000" expanded="true" signature="1476:1532" placeholder="create table... ${$this-&gt;wrapTable($blueprint)}" />
+                <marker date="1461762129000" expanded="true" signature="1943:1970" placeholder="alter table ${$table}... " />
+                <marker date="1461762129000" expanded="true" signature="2453:2522" placeholder="alter table $... " />
+                <marker date="1461762129000" expanded="true" signature="3841:3852" placeholder="drop table $... " />
+                <marker date="1461762129000" expanded="true" signature="4753:4788" placeholder="alter table ${$table}... " />
+                <marker date="1461762129000" expanded="true" signature="5223:5260" placeholder="alter table $... " />
+                <marker date="1461762129000" expanded="true" signature="6553:6590" placeholder="alter table $... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="readme.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/readme.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="60">
-                <caret line="4" column="52" selection-start-line="4" selection-start-column="52" selection-end-line="4" selection-end-column="52" />
-                <folding />
-              </first_editor>
-              <second_editor />
+      <file leaf-file-name="Model.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="1415" column="27" selection-start-line="1415" selection-start-column="20" selection-end-line="1415" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Grammar.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Schema/Grammars/Grammar.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-660">
+              <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+              <folding>
+                <element signature="e#55#76#0#PHP" expanded="true" />
+                <marker date="1461762129000" expanded="true" signature="3331:3367" placeholder="alter table $... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Grammar.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Grammar.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MySqlGrammar.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Schema/Grammars/MySqlGrammar.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="110" column="23" selection-start-line="110" selection-start-column="23" selection-end-line="110" selection-end-column="23" />
+              <folding>
+                <marker date="1461762129000" expanded="true" signature="754:835" placeholder="select * fro... tables" />
+                <marker date="1461762129000" expanded="true" signature="1013:1105" placeholder="select colum... columns" />
+                <marker date="1461762129000" expanded="true" signature="3563:3586" placeholder="alter table ${$table}... " />
+                <marker date="1461762129000" expanded="true" signature="5202:5253" placeholder="alter table $... " />
+                <marker date="1461762129000" expanded="true" signature="5555:5566" placeholder="drop table $... " />
+                <marker date="1461762129000" expanded="true" signature="5917:5938" placeholder="drop table i... " />
+                <marker date="1461762129000" expanded="true" signature="6409:6432" placeholder="alter table ${$table}... " />
+                <marker date="1461762129000" expanded="true" signature="6771:6832" placeholder="alter table ${$this-&gt;wrapTable($blueprint)}... " />
+                <marker date="1461762129000" expanded="true" signature="7241:7273" placeholder="alter table $... " />
+                <marker date="1461762129000" expanded="true" signature="7684:7716" placeholder="alter table $... " />
+                <marker date="1461762129000" expanded="true" signature="8135:8173" placeholder="alter table $... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Builder.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Schema/Builder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2475">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Blueprint.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Schema/Blueprint.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="65" column="20" selection-start-line="65" selection-start-column="9" selection-end-line="65" selection-end-column="20" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -69,7 +151,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/laravel-express/app/Comment.php" />
         <option value="$PROJECT_DIR$/laravel-express/app/Http/Controllers/PostsController.php" />
         <option value="$PROJECT_DIR$/laravel-express/composer.json" />
         <option value="$PROJECT_DIR$/laravel-express/config/app.php" />
@@ -117,9 +198,10 @@
         <option value="$PROJECT_DIR$/database/seeds/ClientTableSeeder.php" />
         <option value="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/ClientController.php" />
         <option value="$PROJECT_DIR$/readme.md" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Schema/Grammars/SqlServerGrammar.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ClientController.php" />
       </list>
     </option>
   </component>
@@ -163,8 +245,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -414,7 +496,8 @@
       <workItem from="1462281862452" duration="5475000" />
       <workItem from="1462465770943" duration="4890000" />
       <workItem from="1462470709567" duration="4901000" />
-      <workItem from="1462476848653" duration="186000" />
+      <workItem from="1462476848653" duration="820000" />
+      <workItem from="1462539938770" duration="1571000" />
     </task>
     <task id="LOCAL-00001" summary="Criado model Client e Migration">
       <created>1462470802637</created>
@@ -437,11 +520,18 @@
       <option name="project" value="LOCAL" />
       <updated>1462475184710</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Api funcionando, update e afins...">
+      <created>1462477057279</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1462477057279</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94717000" />
+    <option name="totallyTimeSpent" value="96922000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="30" width="1368" height="739" extended-state="6" />
@@ -451,6 +541,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -462,7 +553,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -482,20 +572,14 @@
     <MESSAGE value="Criado model Client e Migration" />
     <MESSAGE value="Lista o client na rota" />
     <MESSAGE value="Inicio api, lista e adiciona" />
-    <option name="LAST_COMMIT_MESSAGE" value="Inicio api, lista e adiciona" />
+    <MESSAGE value="Api funcionando, update e afins..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Api funcionando, update e afins..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/laravel-express/database/migrations/2016_04_27_171431_create_tags_post_table.php" />
-    <entry file="file://$PROJECT_DIR$/laravel-express/database/seeds/PostsTableSeeder.php" />
-    <entry file="file://$PROJECT_DIR$/laravel-express/database/seeds/DatabaseSeeder.php" />
-    <entry file="file://$PROJECT_DIR$/laravel-express/database/factories/ModelFactory.php" />
-    <entry file="file://$PROJECT_DIR$/laravel-express/resources/views/posts/index.blade.php" />
-    <entry file="file://$PROJECT_DIR$/laravel-express/resources/views/admin/posts/edit.blade.php" />
-    <entry file="file://$PROJECT_DIR$/laravel-express/resources/views/admin/posts/_form.blade.php" />
     <entry file="file://$PROJECT_DIR$/laravel-express/app/Post.php" />
     <entry file="file://$PROJECT_DIR$/laravel-express/resources/views/admin/posts/create.blade.php" />
     <entry file="file://$PROJECT_DIR$/laravel-express/app/Http/Controllers/PostsAdminController.php" />
@@ -551,6 +635,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -603,16 +688,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ClientController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding>
-            <element signature="e#48#71#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -634,6 +709,95 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Schema/Blueprint.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="65" column="20" selection-start-line="65" selection-start-column="9" selection-end-line="65" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Schema/Builder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2475">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Schema/Grammars/MySqlGrammar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="110" column="23" selection-start-line="110" selection-start-column="23" selection-end-line="110" selection-end-column="23" />
+          <folding>
+            <marker date="1461762129000" expanded="true" signature="754:835" placeholder="select * fro... tables" />
+            <marker date="1461762129000" expanded="true" signature="1013:1105" placeholder="select colum... columns" />
+            <marker date="1461762129000" expanded="true" signature="3563:3586" placeholder="alter table ${$table}... " />
+            <marker date="1461762129000" expanded="true" signature="5202:5253" placeholder="alter table $... " />
+            <marker date="1461762129000" expanded="true" signature="5555:5566" placeholder="drop table $... " />
+            <marker date="1461762129000" expanded="true" signature="5917:5938" placeholder="drop table i... " />
+            <marker date="1461762129000" expanded="true" signature="6409:6432" placeholder="alter table ${$table}... " />
+            <marker date="1461762129000" expanded="true" signature="6771:6832" placeholder="alter table ${$this-&gt;wrapTable($blueprint)}... " />
+            <marker date="1461762129000" expanded="true" signature="7241:7273" placeholder="alter table $... " />
+            <marker date="1461762129000" expanded="true" signature="7684:7716" placeholder="alter table $... " />
+            <marker date="1461762129000" expanded="true" signature="8135:8173" placeholder="alter table $... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Grammar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Schema/Grammars/Grammar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-660">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+          <folding>
+            <element signature="e#55#76#0#PHP" expanded="true" />
+            <marker date="1461762129000" expanded="true" signature="3331:3367" placeholder="alter table $... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Schema/Grammars/SqlServerGrammar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="151" column="129" selection-start-line="151" selection-start-column="129" selection-end-line="151" selection-end-column="129" />
+          <folding>
+            <marker date="1461762129000" expanded="true" signature="663:717" placeholder="select * fro... sysobjects" />
+            <marker date="1461762129000" expanded="true" signature="931:1104" placeholder="select col.n... columns" />
+            <marker date="1461762129000" expanded="true" signature="1476:1532" placeholder="create table... ${$this-&gt;wrapTable($blueprint)}" />
+            <marker date="1461762129000" expanded="true" signature="1943:1970" placeholder="alter table ${$table}... " />
+            <marker date="1461762129000" expanded="true" signature="2453:2522" placeholder="alter table $... " />
+            <marker date="1461762129000" expanded="true" signature="3841:3852" placeholder="drop table $... " />
+            <marker date="1461762129000" expanded="true" signature="4753:4788" placeholder="alter table ${$table}... " />
+            <marker date="1461762129000" expanded="true" signature="5223:5260" placeholder="alter table $... " />
+            <marker date="1461762129000" expanded="true" signature="6553:6590" placeholder="alter table $... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="1415" column="27" selection-start-line="1415" selection-start-column="20" selection-end-line="1415" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ClientController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="24" column="50" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
           <folding />
         </state>
       </provider>

@@ -22,7 +22,7 @@ class ClientController extends Controller
     }
 
     public function update(Request $request, $id) {
-        Client::find($id)->fill($request->all())->save();
+        Client::find($id)->update($request->all());
     }
 
     public function destroy($id) {
