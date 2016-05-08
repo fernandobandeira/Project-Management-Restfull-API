@@ -22,10 +22,13 @@ class ClientController extends Controller
     }
 
     public function update(Request $request, $id) {
-        Client::find($id)->update($request->all());
+        $client = Client::find($id)->fill($request->all());
+        $client->save();
+        return $client;
     }
 
     public function destroy($id) {
         Client::find($id)->delete();
+        return ['message' => 'Cliente deletado com sucesso'];
     }
 }
