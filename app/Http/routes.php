@@ -12,5 +12,5 @@
 */
 
 Route::group(['middleware' => 'api'], function () {
-    Route::resource('client', 'ClientController');
+    Route::resource('client', 'ClientController', ['except'=>['create','edit']]);
 });
