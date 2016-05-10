@@ -2,23 +2,23 @@
 
 namespace CodeProject\Http\Controllers;
 
-use CodeProject\Repositories\ClientRepository;
-use CodeProject\Services\ClientService;
+use CodeProject\Repositories\ProjectRepository;
+use CodeProject\Services\ProjectService;
 use Illuminate\Http\Request;
 
-class ClientController extends Controller
+class ProjectController extends Controller
 {
     /**
-     * @var ClientRepository
+     * @var ProjectRepository
      */
     private $repository;
 
     /**
-     * @var ClientService
+     * @var ProjectService
      */
     private $service;
 
-    public function __construct(ClientRepository $repository, ClientService $service)
+    public function __construct(ProjectRepository $repository, ProjectService $service)
     {
         $this->repository = $repository;
         $this->service = $service;
@@ -30,7 +30,7 @@ class ClientController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        return $this->repository->all();
+        return $this->repository->with('client')->with('owner')->all();
     }
 
     /**
@@ -50,7 +50,7 @@ class ClientController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
-        return $this->repository->with('projects')->find($id);
+        return $this->repository->with('client')->with('owner')->find($id);
     }
 
     /**
@@ -74,11 +74,11 @@ class ClientController extends Controller
         if ($this->repository->delete($id))
             return [
                 'error' => false,
-                'message' => 'Cliente deletado com sucesso.'
+                'message' => 'Projeto deletado com sucesso.'
             ];
         return [
                 'error' => true,
-                'message' => 'Não foi possível deletar o Cliente.'
+                'message' => 'Não foi possível deletar o Projeto.'
             ];
     }
 }
