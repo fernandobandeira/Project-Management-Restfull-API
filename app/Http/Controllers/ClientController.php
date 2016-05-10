@@ -2,15 +2,16 @@
 
 namespace CodeProject\Http\Controllers;
 
-use CodeProject\Client;
+use CodeProject\Repositories\ClientRepositoryEloquent;
+use CodeProject\Entities\Client;
 use Illuminate\Http\Request;
 
 use CodeProject\Http\Requests;
 
 class ClientController extends Controller
 {
-    public function index() {
-        return Client::all();
+    public function index(ClientRepositoryEloquent $repository) {
+        return $repository->all();
     }
 
     public function store(Request $request) {
@@ -22,8 +23,8 @@ class ClientController extends Controller
     }
 
     public function update(Request $request, $id) {
-        $client = Client::find($id)->fill($request->all());
-        if ($client->save())
+        $client = Client::find($id);
+        if ($client->update($request->all()))
             return $client;
         abort(500);
     }
