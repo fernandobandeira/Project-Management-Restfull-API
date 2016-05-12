@@ -4,6 +4,8 @@ namespace CodeProject\Http\Controllers;
 
 use CodeProject\Repositories\ClientRepository;
 use CodeProject\Services\ClientService;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -40,7 +42,11 @@ class ClientController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        return $this->service->create($request->all());
+        try {
+            return $this->service->create($request->all());
+        } catch(\Exception $e) {
+            return [ 'error' => true, 'message' => 'Ocorreu algum erro ao salvar o cliente.' ];
+        }
     }
 
     /**
@@ -50,7 +56,13 @@ class ClientController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
-        return $this->repository->with('projects')->find($id);
+        try {
+            return $this->repository->with('projects')->find($id);
+        } catch(ModelNotFoundException $e) {
+            return [ 'error' => true, 'message' => 'Cliente não encontrado.' ];
+        } catch(\Exception $e) {
+            return [ 'error' => true, 'message' => 'Ocorreu algum erro ao exibir o cliente.' ];
+        }
     }
 
     /**
@@ -61,7 +73,13 @@ class ClientController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        return $this->service->update($request->all(), $id);
+        try {
+            return $this->service->update($request->all(), $id);
+        } catch(ModelNotFoundException $e) {
+            return [ 'error' => true, 'message' => 'Cliente não encontrado.' ];
+        } catch(\Exception $e) {
+            return [ 'error' => true, 'message' => 'Ocorreu algum erro ao atualizar o cliente.' ];
+        }
     }
 
     /**
@@ -71,14 +89,15 @@ class ClientController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        if ($this->repository->delete($id))
-            return [
-                'error' => false,
-                'message' => 'Cliente deletado com sucesso.'
-            ];
-        return [
-                'error' => true,
-                'message' => 'Não foi possível deletar o Cliente.'
-            ];
+        try {
+            $this->repository->delete($id);
+            return [ 'error' => false, 'message' => 'Cliente deletado com sucesso.' ];
+        } catch (QueryException $e) {
+            return [ 'error'=>true, 'message' => 'Cliente não pode ser apagado pois existe um ou mais projetos vinculados a ele.' ];
+        } catch(ModelNotFoundException $e) {
+            return [ 'error' => true, 'message' => 'Cliente não encontrado.' ];
+        } catch(\Exception $e) {
+            return [ 'error' => true, 'message' => 'Ocorreu algum erro ao deletar o cliente.' ];
+        }
     }
 }

@@ -4,6 +4,7 @@ namespace CodeProject\Http\Controllers;
 
 use CodeProject\Repositories\ProjectRepository;
 use CodeProject\Services\ProjectService;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -40,7 +41,11 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        return $this->service->create($request->all());
+        try {
+            return $this->service->create($request->all());
+        } catch(\Exception $e) {
+            return [ 'error' => true, 'message' => 'Ocorreu algum erro ao salvar o projeto.' ];
+        }
     }
 
     /**
@@ -50,7 +55,13 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
-        return $this->repository->with('client')->with('owner')->find($id);
+        try {
+            return $this->repository->with('client')->with('owner')->find($id);
+        } catch(ModelNotFoundException $e) {
+            return [ 'error' => true, 'message' => 'Projeto não encontrado.' ];
+        } catch(\Exception $e) {
+            return [ 'error' => true, 'message' => 'Ocorreu algum erro ao exibir o projeto.' ];
+        }
     }
 
     /**
@@ -61,7 +72,13 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        return $this->service->update($request->all(), $id);
+        try {
+            return $this->service->update($request->all(), $id);
+        } catch(ModelNotFoundException $e) {
+            return [ 'error' => true, 'message' => 'Projeto não encontrado.' ];
+        } catch(\Exception $e) {
+            return [ 'error' => true, 'message' => 'Ocorreu algum erro ao atualizar o projeto.' ];
+        }
     }
 
     /**
@@ -71,14 +88,13 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        if ($this->repository->delete($id))
-            return [
-                'error' => false,
-                'message' => 'Projeto deletado com sucesso.'
-            ];
-        return [
-                'error' => true,
-                'message' => 'Não foi possível deletar o Projeto.'
-            ];
+        try {
+            $this->repository->delete($id);
+            return [ 'error' => false, 'message' => 'Projeto deletado com sucesso.' ];
+        } catch(ModelNotFoundException $e) {
+            return [ 'error' => true, 'message' => 'Projeto não encontrado.' ];
+        } catch(\Exception $e) {
+            return [ 'error' => true, 'message' => 'Ocorreu algum erro ao deletar o projeto.' ];
+        }
     }
 }
