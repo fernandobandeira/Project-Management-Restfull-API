@@ -30,14 +30,23 @@ $factory->define(CodeProject\Entities\Client::class, function (Faker\Generator $
         'obs' => $faker->sentence,
     ];
 });
+
 $factory->define(CodeProject\Entities\Project::class, function (Faker\Generator $faker) {
     return [
-        'owner_id' => factory(CodeProject\Entities\User::class)->create()->id,
-        'client_id' => factory(CodeProject\Entities\Client::class)->create()->id,
-        'name' => $faker->name,
-        'description' => $faker->paragraph,
-        'progress' => $faker->randomFloat(2,0,100),
-        'status' => $faker->sentence,
+        'owner_id' => $faker->numberBetween(1,6),
+        'client_id' => $faker->numberBetween(1,7),
+        'name' => $faker->word,
+        'description' => $faker->sentence,
+        'progress' => $faker->numberBetween(1,100),
+        'status' => $faker->numberBetween(1,3),
         'due_date' => $faker->date,
+    ];
+});
+
+$factory->define(CodeProject\Entities\ProjectNote::class, function (Faker\Generator $faker) {
+    return [
+        'project_id' => $faker->numberBetween(1,5),
+        'title' => $faker->word,
+        'note' => $faker->paragraph,
     ];
 });

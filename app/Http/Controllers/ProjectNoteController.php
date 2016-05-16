@@ -2,25 +2,24 @@
 
 namespace CodeProject\Http\Controllers;
 
-use CodeProject\Repositories\ProjectRepository;
-use CodeProject\Services\ProjectService;
+use CodeProject\Repositories\ProjectNoteRepository;
+use CodeProject\Services\ProjectNoteService;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
-class ProjectController extends Controller
+class ProjectNoteController extends Controller
 {
     /**
-     * @var ProjectRepository
+     * @var ProjectNoteRepository
      */
     private $repository;
 
     /**
-     * @var ProjectService
+     * @var ProjectNoteService
      */
     private $service;
 
-    public function __construct(ProjectRepository $repository, ProjectService $service)
+    public function __construct(ProjectNoteRepository $repository, ProjectNoteService $service)
     {
         $this->repository = $repository;
         $this->service = $service;
@@ -29,10 +28,11 @@ class ProjectController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-        return $this->repository->with('client')->with('owner')->all();
+    public function index($id) {
+        return $this->repository->findWhere(['project_id' => $id]);
     }
 
     /**
@@ -45,23 +45,24 @@ class ProjectController extends Controller
         try {
             return $this->service->create($request->all());
         } catch(\Exception $e) {
-            return [ 'error' => true, 'message' => 'Ocorreu algum erro ao salvar o projeto.' ];
+            return [ 'error' => true, 'message' => 'Ocorreu algum erro ao salvar a nota do projeto.' ];
         }
     }
 
     /**
      * Display the specified resource.
      *
+     * @param  int  $projectId
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id) {
+    public function show($projectId, $id) {
         try {
-            return $this->repository->with('client')->with('owner')->with('notes')->find($id);
+            return $this->repository->with('project')->findWhere(['project_id' => $projectId, 'id' => $id]);
         } catch(ModelNotFoundException $e) {
-            return [ 'error' => true, 'message' => 'Projeto não encontrado.' ];
+            return [ 'error' => true, 'message' => 'Nota do projeto não encontrada.' ];
         } catch(\Exception $e) {
-            return [ 'error' => true, 'message' => 'Ocorreu algum erro ao exibir o projeto.' ];
+            return [ 'error' => true, 'message' => 'Ocorreu algum erro ao exibir a nota do projeto.' ];
         }
     }
 
@@ -69,35 +70,35 @@ class ProjectController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  int  $projectId
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id) {
+    public function update(Request $request, $projectId, $id) {
         try {
             return $this->service->update($request->all(), $id);
         } catch(ModelNotFoundException $e) {
-            return [ 'error' => true, 'message' => 'Projeto não encontrado.' ];
+            return [ 'error' => true, 'message' => 'Nota do projeto não encontrada.' ];
         } catch(\Exception $e) {
-            return [ 'error' => true, 'message' => 'Ocorreu algum erro ao atualizar o projeto.' ];
+            return [ 'error' => true, 'message' => 'Ocorreu algum erro ao atualizar a nota do projeto.' ];
         }
     }
 
     /**
      * Remove the specified resource from storage.
      *
+     * @param  int  $projectId
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) {
+    public function destroy($projectId, $id) {
         try {
             $this->repository->delete($id);
-            return [ 'error' => false, 'message' => 'Projeto deletado com sucesso.' ];
-        } catch (QueryException $e) {
-            return [ 'error'=>true, 'message' => 'Projeto não pode ser apagado pois existe uma ou mais notas vinculadas a ele.' ];
+            return [ 'error' => false, 'message' => 'Nota do projeto deletado com sucesso.' ];
         } catch(ModelNotFoundException $e) {
-            return [ 'error' => true, 'message' => 'Projeto não encontrado.' ];
+            return [ 'error' => true, 'message' => 'Nota do projeto não encontrada.' ];
         } catch(\Exception $e) {
-            return [ 'error' => true, 'message' => 'Ocorreu algum erro ao deletar o projeto.' ];
+            return [ 'error' => true, 'message' => 'Ocorreu algum erro ao deletar a nota do projeto.' ];
         }
     }
 }

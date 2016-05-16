@@ -23,4 +23,8 @@ class Project extends Model
     public function client() {
         return $this->belongsTo('CodeProject\Entities\Client');
     }
+
+    public function notes() {
+        return $this->hasMany('CodeProject\Entities\ProjectNote');
+    }
 }
