@@ -2,24 +2,24 @@
 
 namespace CodeProject\Http\Controllers;
 
-use CodeProject\Repositories\ProjectNoteRepository;
-use CodeProject\Services\ProjectNoteService;
+use CodeProject\Repositories\ProjectTaskRepository;
+use CodeProject\Services\ProjectTaskService;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
-class ProjectNoteController extends Controller
+class ProjectTaskController extends Controller
 {
     /**
-     * @var ProjectNoteRepository
+     * @var ProjectTaskRepository
      */
     private $repository;
 
     /**
-     * @var ProjectNoteService
+     * @var ProjectTaskService
      */
     private $service;
 
-    public function __construct(ProjectNoteRepository $repository, ProjectNoteService $service)
+    public function __construct(ProjectTaskRepository $repository, ProjectTaskService $service)
     {
         $this->repository = $repository;
         $this->service = $service;
@@ -45,7 +45,7 @@ class ProjectNoteController extends Controller
         try {
             return $this->service->create($request->all());
         } catch(\Exception $e) {
-            return [ 'error' => true, 'message' => 'Ocorreu algum erro ao salvar a nota do projeto.' ];
+            return [ 'error' => true, 'message' => 'Ocorreu algum erro ao salvar a tarefa do projeto.' ];
         }
     }
 
@@ -62,9 +62,9 @@ class ProjectNoteController extends Controller
                 ->with('project')
                 ->findWhere(['project_id' => $projectId, 'id' => $id]);
         } catch(ModelNotFoundException $e) {
-            return [ 'error' => true, 'message' => 'Nota do projeto não encontrada.' ];
+            return [ 'error' => true, 'message' => 'Tarefa do projeto não encontrada.' ];
         } catch(\Exception $e) {
-            return [ 'error' => true, 'message' => 'Ocorreu algum erro ao exibir a nota do projeto.' ];
+            return [ 'error' => true, 'message' => 'Ocorreu algum erro ao exibir a tarefa do projeto.' ];
         }
     }
 
@@ -80,9 +80,9 @@ class ProjectNoteController extends Controller
         try {
             return $this->service->update($request->all(), $id);
         } catch(ModelNotFoundException $e) {
-            return [ 'error' => true, 'message' => 'Nota do projeto não encontrada.' ];
+            return [ 'error' => true, 'message' => 'Tarefa do projeto não encontrada.' ];
         } catch(\Exception $e) {
-            return [ 'error' => true, 'message' => 'Ocorreu algum erro ao atualizar a nota do projeto.' ];
+            return [ 'error' => true, 'message' => 'Ocorreu algum erro ao atualizar a tarefa do projeto.' ];
         }
     }
 
@@ -96,11 +96,11 @@ class ProjectNoteController extends Controller
     public function destroy($projectId, $id) {
         try {
             $this->repository->delete($id);
-            return [ 'error' => false, 'message' => 'Nota do projeto deletado com sucesso.' ];
+            return [ 'error' => false, 'message' => 'Tarefa do projeto deletada com sucesso.' ];
         } catch(ModelNotFoundException $e) {
-            return [ 'error' => true, 'message' => 'Nota do projeto não encontrada.' ];
+            return [ 'error' => true, 'message' => 'Tarefa do projeto não encontrada.' ];
         } catch(\Exception $e) {
-            return [ 'error' => true, 'message' => 'Ocorreu algum erro ao deletar a nota do projeto.' ];
+            return [ 'error' => true, 'message' => 'Ocorreu algum erro ao deletar a tarefa do projeto.' ];
         }
     }
 }

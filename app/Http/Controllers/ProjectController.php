@@ -32,7 +32,10 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        return $this->repository->with('client')->with('owner')->all();
+        return $this->repository
+            ->with('client')
+            ->with('owner')
+            ->all();
     }
 
     /**
@@ -57,7 +60,12 @@ class ProjectController extends Controller
      */
     public function show($id) {
         try {
-            return $this->repository->with('client')->with('owner')->with('notes')->find($id);
+            return $this->repository
+                ->with('client')
+                ->with('owner')
+                ->with('notes')
+                ->with('tasks')
+                ->find($id);
         } catch(ModelNotFoundException $e) {
             return [ 'error' => true, 'message' => 'Projeto não encontrado.' ];
         } catch(\Exception $e) {
@@ -93,7 +101,7 @@ class ProjectController extends Controller
             $this->repository->delete($id);
             return [ 'error' => false, 'message' => 'Projeto deletado com sucesso.' ];
         } catch (QueryException $e) {
-            return [ 'error'=>true, 'message' => 'Projeto não pode ser apagado pois existe uma ou mais notas vinculadas a ele.' ];
+            return [ 'error'=>true, 'message' => 'Projeto não pode ser apagado pois o mesmo possui vínculos.' ];
         } catch(ModelNotFoundException $e) {
             return [ 'error' => true, 'message' => 'Projeto não encontrado.' ];
         } catch(\Exception $e) {
