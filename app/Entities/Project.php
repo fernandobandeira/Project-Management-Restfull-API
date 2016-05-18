@@ -31,4 +31,13 @@ class Project extends Model implements Transformable
     public function notes() {
         return $this->hasMany('CodeProject\Entities\ProjectNote');
     }
+
+    public function tasks() {
+        return $this->hasMany('CodeProject\Entities\ProjectTask');
+    }
+
+    public function members()
+    {
+        return $this->belongsToMany('CodeProject\Entities\User');
+    }
 }

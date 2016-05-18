@@ -61,8 +61,9 @@ class ProjectController extends Controller
     public function show($id) {
         try {
             return $this->repository
-                ->with('client')
                 ->with('owner')
+                ->with('client')
+                ->with('members')
                 ->with('notes')
                 ->with('tasks')
                 ->find($id);

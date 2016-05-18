@@ -50,3 +50,13 @@ $factory->define(CodeProject\Entities\ProjectNote::class, function (Faker\Genera
         'note' => $faker->paragraph,
     ];
 });
+
+$factory->define(CodeProject\Entities\ProjectTask::class, function (Faker\Generator $faker) {
+    return [
+        'project_id' => $faker->numberBetween(1,5),
+        'name' => $faker->word,
+        'start_date' => $faker->date,
+        'due_date' => $faker->date,
+        'status' => $faker->numberBetween(1,3),
+    ];
+});

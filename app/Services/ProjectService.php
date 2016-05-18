@@ -49,4 +49,8 @@ class ProjectService
             ];
         }
     }
+
+    public function addMember() {
+        
+    }
 }
