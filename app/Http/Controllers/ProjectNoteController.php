@@ -96,7 +96,7 @@ class ProjectNoteController extends Controller
     public function destroy($projectId, $id) {
         try {
             $this->repository->delete($id);
-            return [ 'error' => false, 'message' => 'Nota do projeto deletado com sucesso.' ];
+            return [ 'error' => false, 'message' => 'Nota do projeto deletada com sucesso.' ];
         } catch(ModelNotFoundException $e) {
             return [ 'error' => true, 'message' => 'Nota do projeto não encontrada.' ];
         } catch(\Exception $e) {
