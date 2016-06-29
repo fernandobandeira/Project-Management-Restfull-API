@@ -38,6 +38,6 @@ class Project extends Model implements Transformable
 
     public function members()
     {
-        return $this->belongsToMany('CodeProject\Entities\User');
+        return $this->belongsToMany('CodeProject\Entities\User', 'project_members');
     }
 }

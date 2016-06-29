@@ -14,6 +14,7 @@
 Route::group(['middleware' => 'api'], function () {
     Route::resource('client', 'ClientController', ['except'=>['create','edit']]);
     Route::resource('project', 'ProjectController', ['except'=>['create','edit']]);
+    Route::get('/project/{id}/members', 'ProjectController@members');
     Route::resource('project.note', 'ProjectNoteController', ['except'=>['create','edit']]);
     Route::resource('project.task', 'ProjectTaskController', ['except'=>['create','edit']]);
 });
