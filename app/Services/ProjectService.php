@@ -79,18 +79,19 @@ class ProjectService
         }
     }
 
+    public function isOwner($project_id, $owner_id)
+    {
+        if (count($this->repository->findWhere(['id' => $project_id, 'owner_id' => $owner_id])))
+            return true;
+        return false;
+    }
+
     public function isMember($project_id, $member_id)
     {
-        try {
-            $project = $this->repository->find($project_id);
-            $member = $project->members()->where('id', $member_id)->first();
-            if ($member != null)
-                return true;
-            return false;
-        } catch (ModelNotFoundException $e) {
-            return ['error' => true, 'message' => 'Projeto não encontrado.'];
-        } catch (\Exception $e) {
-            return ['error' => true, 'message' => 'Ocorreu algum erro ao veificar se o membro pertence ao projeto.'];
-        }
+        $project = $this->repository->find($project_id);
+        $member = $project->members()->where('id', $member_id)->first();
+        if ($member != null)
+            return true;
+        return false;
     }
 }

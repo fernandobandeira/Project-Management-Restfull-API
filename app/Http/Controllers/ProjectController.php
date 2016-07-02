@@ -7,6 +7,7 @@ use CodeProject\Services\ProjectService;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Authorizer;
 
 class ProjectController extends Controller
 {
@@ -24,6 +25,16 @@ class ProjectController extends Controller
     {
         $this->repository = $repository;
         $this->service = $service;
+
+        $this->middleware('CheckProjectPermissions', ['except' => [
+            'index',
+            'store',
+            'destroy'
+        ]]);
+
+        $this->middleware('CheckProjectOwner', ['only' => [
+            'destroy',
+        ]]);
     }
 
     /**
@@ -33,10 +44,19 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        return $this->repository
+        $ownedProjects = $this->repository
             ->with('client')
             ->with('owner')
-            ->all();
+            ->findWhere(['owner_id' => Authorizer::getResourceOwnerId()]);
+
+        $memberOfProjects = $this->repository
+            ->with('client')
+            ->with('owner')
+            ->whereHas('members', function ($query) {
+                return $query->where('id', Authorizer::getResourceOwnerId());
+            })->all();
+
+        return $ownedProjects->merge($memberOfProjects);
     }
 
     /**
@@ -62,7 +82,7 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
-        try {
+        try {            
             return $this->repository
                 ->with('owner')
                 ->with('client')

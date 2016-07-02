@@ -30,6 +30,6 @@ class User extends Authenticatable
 
     public function memberOfProjects()
     {
-        return $this->belongsToMany('CodeProject\Entities\Project');
+        return $this->belongsToMany('CodeProject\Entities\Project', 'project_members');
     }
 }
