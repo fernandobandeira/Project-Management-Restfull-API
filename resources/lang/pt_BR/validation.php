@@ -38,6 +38,7 @@ return [
     'distinct'             => 'O campo :attribute contém um valor duplicado.',
     'email'                => 'O campo :attribute não contém um endereço de email válido.',
     'exists'               => 'O valor selecionado para o campo :attribute é inválido.',
+    'file'                 => 'O campo :attribute deverá conter um arquivo.',
     'filled'               => 'O campo :attribute é obrigatório.',
     'image'                => 'O campo :attribute deverá conter uma imagem.',
     'in'                   => 'O campo :attribute não contém um valor válido.',
@@ -110,15 +111,7 @@ return [
     */
 
     'attributes'           => [
-        'address' => 'Endereço',
-        'client_id' => 'Cliente',
-        'due_date' => 'Data de Vencimento',
-        'email' => 'Endereço de E-mail',
-        'name' => 'Nome',
-        'owner_id' => 'Proprietário',
-        'phone' => 'Telefone',
-        'responsible' => 'Responsável',
-        'status' => 'Status',
+        //
     ],
 
 ];

@@ -20,6 +20,6 @@ class Client extends Model implements Transformable
     ];
     
     public function projects() {
-        return $this->hasMany('CodeProject\Entities\Project');
+        return $this->hasMany(Project::class);
     }
 }

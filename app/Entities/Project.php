@@ -21,23 +21,27 @@ class Project extends Model implements Transformable
     ];
     
     public function owner() {
-        return $this->belongsTo('CodeProject\Entities\User', 'owner_id');
+        return $this->belongsTo(User::class, 'owner_id');
     }
     
     public function client() {
-        return $this->belongsTo('CodeProject\Entities\Client');
+        return $this->belongsTo(Client::class);
     }
 
     public function notes() {
-        return $this->hasMany('CodeProject\Entities\ProjectNote');
+        return $this->hasMany(ProjectNote::class);
     }
 
     public function tasks() {
-        return $this->hasMany('CodeProject\Entities\ProjectTask');
+        return $this->hasMany(ProjectTask::class);
     }
 
     public function members()
     {
-        return $this->belongsToMany('CodeProject\Entities\User', 'project_members');
+        return $this->belongsToMany(User::class, 'project_members');
+    }
+
+    public function files() {
+        return $this->hasMany(ProjectFile::class);
     }
 }

@@ -14,13 +14,14 @@
 Route::group(['middleware' => 'api'], function () {
     Route::post('oauth/access_token', function() {
        return Response::json(Authorizer::issueAccessToken());
-    });
+    })->name('oauth.access_token');
 
     Route::group(['middleware' => 'oauth'], function() {
         Route::resource('client', 'ClientController', ['except'=>['create','edit']]);
         Route::resource('project', 'ProjectController', ['except'=>['create','edit']]);
-        Route::get('/project/{project}/members', 'ProjectController@members');
+        Route::get('/project/{project}/members', 'ProjectController@members')->name('project.member');
         Route::resource('project.note', 'ProjectNoteController', ['except'=>['create','edit']]);
         Route::resource('project.task', 'ProjectTaskController', ['except'=>['create','edit']]);
+        Route::resource('project.file', 'ProjectFileController', ['only'=>['store','destroy']]);
     });
 });

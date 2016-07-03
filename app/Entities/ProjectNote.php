@@ -17,7 +17,7 @@ class ProjectNote extends Model implements Transformable
     ];
     
     public function project() {
-        return $this->belongsTo('CodeProject\Entities\Project');
+        return $this->belongsTo(Project::class);
     }
 
 }

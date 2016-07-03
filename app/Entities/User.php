@@ -25,11 +25,11 @@ class User extends Authenticatable
     ];
 
     public function ownedProjects() {
-        return $this->hasMany('CodeProject\Entities\Project', 'owner_id');
+        return $this->hasMany(Project::class, 'owner_id');
     }
 
     public function memberOfProjects()
     {
-        return $this->belongsToMany('CodeProject\Entities\Project', 'project_members');
+        return $this->belongsToMany(Project::class, 'project_members');
     }
 }

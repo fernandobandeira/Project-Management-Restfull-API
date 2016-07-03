@@ -8,7 +8,7 @@ use League\Fractal\TransformerAbstract;
 class ProjectTransformer extends TransformerAbstract
 {
     protected $defaultIncludes = [
-        'client', 'owner', 'members', 'tasks', 'notes'
+        'client', 'owner', 'members', 'tasks', 'notes', 'files'
     ];
 
     public function transform(Project $project)
@@ -46,5 +46,10 @@ class ProjectTransformer extends TransformerAbstract
     public function includeOwner(Project $project)
     {
         return $this->item($project->owner, new ProjectOwnerTransformer());
+    }
+
+    public function includeFiles(Project $project)
+    {
+        return $this->collection($project->files, new ProjectFileTransformer());
     }
 }
