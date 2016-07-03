@@ -3,20 +3,19 @@
 namespace CodeProject\Http\Middleware;
 
 use Closure;
-use CodeProject\Services\ProjectService;
+use CodeProject\Repositories\ProjectRepository;
 use Authorizer;
 
 class CheckProjectPermissions
 {
     /**
-     * @var ProjectService
+     * @var ProjectRepository
      */
-    private $service;
+    private $repository;
 
-    public function __construct(ProjectService $service)
+    public function __construct(ProjectRepository $repository)
     {
-
-        $this->service = $service;
+        $this->repository = $repository;
     }
 
     /**
@@ -31,7 +30,7 @@ class CheckProjectPermissions
         $user_id = Authorizer::getResourceOwnerId();
         $project_id = $request->project;
 
-        if ($this->service->isOwner($project_id, $user_id) == false && $this->service->isMember($project_id, $user_id) == false) {
+        if ($this->repository->isOwner($project_id, $user_id) == false && $this->repository->isMember($project_id, $user_id) == false) {
             return [ 'error' => true, 'message' => 'Você não possui permissão para acessar este recurso.' ];
         }
 

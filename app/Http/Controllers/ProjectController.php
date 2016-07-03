@@ -44,19 +44,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $ownedProjects = $this->repository
-            ->with('client')
-            ->with('owner')
-            ->findWhere(['owner_id' => Authorizer::getResourceOwnerId()]);
-
-        $memberOfProjects = $this->repository
-            ->with('client')
-            ->with('owner')
-            ->whereHas('members', function ($query) {
-                return $query->where('id', Authorizer::getResourceOwnerId());
-            })->all();
-
-        return $ownedProjects->merge($memberOfProjects);
+        return $this->service->userProjects(Authorizer::getResourceOwnerId());
     }
 
     /**
@@ -83,13 +71,7 @@ class ProjectController extends Controller
     public function show($id)
     {
         try {            
-            return $this->repository
-                ->with('owner')
-                ->with('client')
-                ->with('members')
-                ->with('notes')
-                ->with('tasks')
-                ->find($id);
+            return $this->repository->find($id);
         } catch (ModelNotFoundException $e) {
             return ['error' => true, 'message' => 'Projeto não encontrado.'];
         } catch (\Exception $e) {
@@ -138,8 +120,7 @@ class ProjectController extends Controller
     public function members($id)
     {
         try {
-            $project = $this->repository->find($id);
-            return $project->members;
+            return $this->repository->members($id);
         } catch (ModelNotFoundException $e) {
             return ['error' => true, 'message' => 'Projeto não encontrado.'];
         } catch (\Exception $e) {

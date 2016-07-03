@@ -58,11 +58,11 @@ class ProjectNoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($projectId, $id) {
+    public function show($project_id, $id) {
         try {
             return $this->repository
                 ->with('project')
-                ->findWhere(['project_id' => $projectId, 'id' => $id]);
+                ->findWhere(['project_id' => $project_id, 'id' => $id]);
         } catch(ModelNotFoundException $e) {
             return [ 'error' => true, 'message' => 'Nota do projeto não encontrada.' ];
         } catch(\Exception $e) {
@@ -74,11 +74,11 @@ class ProjectNoteController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $projectId
+     * @param  int  $project_id
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $projectId, $id) {
+    public function update(Request $request, $project_id, $id) {
         try {
             return $this->service->update($request->all(), $id);
         } catch(ModelNotFoundException $e) {
@@ -91,11 +91,11 @@ class ProjectNoteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $projectId
+     * @param  int  $project_id
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($projectId, $id) {
+    public function destroy($project_id, $id) {
         try {
             $this->repository->delete($id);
             return [ 'error' => false, 'message' => 'Nota do projeto deletada com sucesso.' ];

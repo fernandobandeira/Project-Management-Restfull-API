@@ -3,20 +3,19 @@
 namespace CodeProject\Http\Middleware;
 
 use Closure;
-use CodeProject\Services\ProjectService;
+use CodeProject\Repositories\ProjectRepository;
 use Authorizer;
 
 class CheckProjectOwner
 {
     /**
-     * @var ProjectService
+     * @var ProjectRepository
      */
-    private $service;
+    private $repository;
 
-    public function __construct(ProjectService $service)
+    public function __construct(ProjectRepository $repository)
     {
-
-        $this->service = $service;
+        $this->repository = $repository;
     }
 
     /**
@@ -31,7 +30,7 @@ class CheckProjectOwner
         $owner_id = Authorizer::getResourceOwnerId();
         $project_id = $request->project;
 
-        if ($this->service->isOwner($project_id, $owner_id) == false) {
+        if ($this->repository->isOwner($project_id, $owner_id) == false) {
             return [ 'error' => true, 'message' => 'Você precisa ser o dono do projeto para acessar este recurso.' ];
         }
         

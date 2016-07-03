@@ -54,15 +54,15 @@ class ProjectTaskController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $projectId
+     * @param  int  $project_id
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($projectId, $id) {
+    public function show($project_id, $id) {
         try {
             return $this->repository
                 ->with('project')
-                ->findWhere(['project_id' => $projectId, 'id' => $id]);
+                ->findWhere(['project_id' => $project_id, 'id' => $id]);
         } catch(ModelNotFoundException $e) {
             return [ 'error' => true, 'message' => 'Tarefa do projeto não encontrada.' ];
         } catch(\Exception $e) {
@@ -74,11 +74,11 @@ class ProjectTaskController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $projectId
+     * @param  int  $project_id
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $projectId, $id) {
+    public function update(Request $request, $project_id, $id) {
         try {
             return $this->service->update($request->all(), $id);
         } catch(ModelNotFoundException $e) {
@@ -91,11 +91,11 @@ class ProjectTaskController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $projectId
+     * @param  int  $project_id
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($projectId, $id) {
+    public function destroy($project_id, $id) {
         try {
             $this->repository->delete($id);
             return [ 'error' => false, 'message' => 'Tarefa do projeto deletada com sucesso.' ];
