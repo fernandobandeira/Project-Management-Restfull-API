@@ -2,7 +2,7 @@
 
 namespace CodeProject\Presenters;
 
-use CodeProject\TransFormers\ProjectTransformer;
+use CodeProject\Transformers\ProjectTransformer;
 use Prettus\Repository\Presenter\FractalPresenter;
 
 class ProjectPresenter extends FractalPresenter
