@@ -2,19 +2,18 @@
 
 namespace CodeProject\Repositories;
 
-use CodeProject\Presenters\ProjectTaskPresenter;
-use Prettus\Repository\Eloquent\BaseRepository;
-use Prettus\Repository\Criteria\RequestCriteria;
 use CodeProject\Entities\ProjectTask;
+use CodeProject\Presenters\ProjectTaskPresenter;
+use Prettus\Repository\Criteria\RequestCriteria;
+use Prettus\Repository\Eloquent\BaseRepository;
 
 /**
- * Class ProjectTaskRepositoryEloquent
- * @package namespace CodeProject\Repositories;
+ * Class ProjectTaskRepositoryEloquent.
  */
 class ProjectTaskRepositoryEloquent extends BaseRepository implements ProjectTaskRepository
 {
     /**
-     * Specify Model class name
+     * Specify Model class name.
      *
      * @return string
      */
@@ -24,7 +23,7 @@ class ProjectTaskRepositoryEloquent extends BaseRepository implements ProjectTas
     }
 
     /**
-     * Boot up the repository, pushing criteria
+     * Boot up the repository, pushing criteria.
      */
     public function boot()
     {

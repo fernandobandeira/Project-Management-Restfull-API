@@ -3,19 +3,18 @@
  * Created by PhpStorm.
  * User: fernando
  * Date: 02/07/2016
- * Time: 14:41
+ * Time: 14:41.
  */
-
 namespace CodeProject\OAuth;
-
 
 use Auth;
 
 class Verifier
 {
-    public function verify($username, $password) {
+    public function verify($username, $password)
+    {
         $credentials = [
-            'email' => $username,
+            'email'    => $username,
             'password' => $password,
         ];
 

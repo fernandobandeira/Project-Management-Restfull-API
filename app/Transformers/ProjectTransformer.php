@@ -8,18 +8,18 @@ use League\Fractal\TransformerAbstract;
 class ProjectTransformer extends TransformerAbstract
 {
     protected $defaultIncludes = [
-        'client', 'owner', 'members', 'tasks', 'notes', 'files'
+        'client', 'owner', 'members', 'tasks', 'notes', 'files',
     ];
 
     public function transform(Project $project)
     {
         return [
-            'project_id' => $project->id,
-            'name' => $project->name,
+            'project_id'  => $project->id,
+            'name'        => $project->name,
             'description' => $project->description,
-            'progress' => $project->progress,
-            'status' => $project->status,
-            'due_date' => $project->due_date,
+            'progress'    => $project->progress,
+            'status'      => $project->status,
+            'due_date'    => $project->due_date,
         ];
     }
 

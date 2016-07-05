@@ -2,14 +2,11 @@
 
 namespace CodeProject\Repositories;
 
-
 use Prettus\Repository\Contracts\RepositoryInterface;
 
 /**
- * Interface ClientRepository
- * @package namespace CodeProject\Repositories;
+ * Interface ClientRepository.
  */
 interface ClientRepository extends RepositoryInterface
 {
-
 }

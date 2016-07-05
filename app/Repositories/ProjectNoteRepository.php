@@ -5,8 +5,7 @@ namespace CodeProject\Repositories;
 use Prettus\Repository\Contracts\RepositoryInterface;
 
 /**
- * Interface ProjectNoteRepository
- * @package namespace CodeProject\Repositories;
+ * Interface ProjectNoteRepository.
  */
 interface ProjectNoteRepository extends RepositoryInterface
 {

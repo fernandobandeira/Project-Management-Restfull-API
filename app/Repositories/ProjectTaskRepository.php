@@ -5,8 +5,7 @@ namespace CodeProject\Repositories;
 use Prettus\Repository\Contracts\RepositoryInterface;
 
 /**
- * Interface ProjectTaskRepository
- * @package namespace CodeProject\Repositories;
+ * Interface ProjectTaskRepository.
  */
 interface ProjectTaskRepository extends RepositoryInterface
 {

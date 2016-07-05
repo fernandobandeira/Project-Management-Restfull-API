@@ -24,7 +24,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function ownedProjects() {
+    public function ownedProjects()
+    {
         return $this->hasMany(Project::class, 'owner_id');
     }
 

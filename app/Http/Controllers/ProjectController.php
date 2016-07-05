@@ -2,12 +2,12 @@
 
 namespace CodeProject\Http\Controllers;
 
+use Authorizer;
 use CodeProject\Repositories\ProjectRepository;
 use CodeProject\Services\ProjectService;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
-use Authorizer;
 
 class ProjectController extends Controller
 {
@@ -29,7 +29,7 @@ class ProjectController extends Controller
         $this->middleware('CheckProjectPermissions', ['except' => [
             'index',
             'store',
-            'destroy'
+            'destroy',
         ]]);
 
         $this->middleware('CheckProjectOwner', ['only' => [
@@ -50,7 +50,8 @@ class ProjectController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -65,12 +66,13 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        try {            
+        try {
             return $this->repository->find($id);
         } catch (ModelNotFoundException $e) {
             return ['error' => true, 'message' => 'Projeto não encontrado.'];
@@ -82,8 +84,9 @@ class ProjectController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -100,13 +103,15 @@ class ProjectController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         try {
             $this->repository->delete($id);
+
             return ['error' => false, 'message' => 'Projeto deletado com sucesso.'];
         } catch (QueryException $e) {
             return ['error' => true, 'message' => 'Projeto não pode ser apagado pois o mesmo possui vínculos.'];
