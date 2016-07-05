@@ -2,20 +2,18 @@
 
 namespace CodeProject\Repositories;
 
-
 use CodeProject\Entities\Project;
 use CodeProject\Presenters\ProjectPresenter;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Prettus\Repository\Eloquent\BaseRepository;
 
 /**
- * Class ProjectRepositoryEloquent
- * @package namespace CodeProject\Repositories;
+ * Class ProjectRepositoryEloquent.
  */
 class ProjectRepositoryEloquent extends BaseRepository implements ProjectRepository
 {
     /**
-     * Specify Model class name
+     * Specify Model class name.
      *
      * @return string
      */
@@ -25,19 +23,19 @@ class ProjectRepositoryEloquent extends BaseRepository implements ProjectReposit
     }
 
     /**
-     * Boot up the repository, pushing criteria
+     * Boot up the repository, pushing criteria.
      */
     public function boot()
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
 
-
     public function addMember($project_id, $member_id)
     {
         try {
             $project = $this->find($project_id);
             $project->members()->attach($member_id);
+
             return ['error' => false, 'message' => 'Membro adicionado ao projeto.'];
         } catch (ModelNotFoundException $e) {
             return ['error' => true, 'message' => 'Projeto não encontrado.'];
@@ -51,6 +49,7 @@ class ProjectRepositoryEloquent extends BaseRepository implements ProjectReposit
         try {
             $project = $this->find($project_id);
             $project->members()->detach($member_id);
+
             return ['error' => false, 'message' => 'Membro removido do projeto.'];
         } catch (ModelNotFoundException $e) {
             return ['error' => true, 'message' => 'Projeto não encontrado.'];
@@ -64,8 +63,10 @@ class ProjectRepositoryEloquent extends BaseRepository implements ProjectReposit
         $project = $this
             ->skipPresenter()
             ->findWhere(['id' => $project_id, 'owner_id' => $owner_id]);
-        if (count($project))
+        if (count($project)) {
             return true;
+        }
+
         return false;
     }
 
@@ -78,8 +79,10 @@ class ProjectRepositoryEloquent extends BaseRepository implements ProjectReposit
             ->skipPresenter()
             ->find($project_id);
 
-        if (count($project))
+        if (count($project)) {
             return true;
+        }
+
         return false;
     }
 

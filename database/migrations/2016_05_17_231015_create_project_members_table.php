@@ -1,11 +1,10 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateProjectMembersTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -31,5 +30,4 @@ class CreateProjectMembersTable extends Migration
     {
         Schema::drop('project_members');
     }
-
 }

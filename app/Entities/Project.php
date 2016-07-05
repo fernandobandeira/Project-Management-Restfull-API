@@ -17,22 +17,26 @@ class Project extends Model implements Transformable
         'description',
         'progress',
         'status',
-        'due_date'
+        'due_date',
     ];
-    
-    public function owner() {
+
+    public function owner()
+    {
         return $this->belongsTo(User::class, 'owner_id');
     }
-    
-    public function client() {
+
+    public function client()
+    {
         return $this->belongsTo(Client::class);
     }
 
-    public function notes() {
+    public function notes()
+    {
         return $this->hasMany(ProjectNote::class);
     }
 
-    public function tasks() {
+    public function tasks()
+    {
         return $this->hasMany(ProjectTask::class);
     }
 
@@ -41,7 +45,8 @@ class Project extends Model implements Transformable
         return $this->belongsToMany(User::class, 'project_members');
     }
 
-    public function files() {
+    public function files()
+    {
         return $this->hasMany(ProjectFile::class);
     }
 }

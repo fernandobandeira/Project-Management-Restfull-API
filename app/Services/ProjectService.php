@@ -2,12 +2,11 @@
 
 namespace CodeProject\Services;
 
-
 use CodeProject\Repositories\ProjectRepository;
 use CodeProject\Validators\ProjectValidator;
-use Prettus\Validator\Exceptions\ValidatorException;
-use Illuminate\Filesystem\Filesystem as File;
 use Illuminate\Contracts\Filesystem\Factory as Storage;
+use Illuminate\Filesystem\Filesystem as File;
+use Prettus\Validator\Exceptions\ValidatorException;
 
 class ProjectService
 {
@@ -40,11 +39,12 @@ class ProjectService
     {
         try {
             $this->validator->with($data)->passesOrFail();
+
             return $this->repository->create($data);
         } catch (ValidatorException $e) {
             return [
-                'error' => true,
-                'message' => $e->getMessageBag()
+                'error'   => true,
+                'message' => $e->getMessageBag(),
             ];
         }
     }
@@ -53,11 +53,12 @@ class ProjectService
     {
         try {
             $this->validator->with($data)->passesOrFail();
+
             return $this->repository->update($data, $id);
         } catch (ValidatorException $e) {
             return [
-                'error' => true,
-                'message' => $e->getMessageBag()
+                'error'   => true,
+                'message' => $e->getMessageBag(),
             ];
         }
     }
@@ -77,10 +78,11 @@ class ProjectService
         $project = $this->repository->skipPresenter()->find($data['project_id']);
         $projectFile = $project->files()->create($data);
 
-        $this->storage->put($projectFile->id . '.' . $data['extension'], $this->file->get($data['file']));
+        $this->storage->put($projectFile->id.'.'.$data['extension'], $this->file->get($data['file']));
     }
 
-    public function deleteFile($project_id, $file_id) {
+    public function deleteFile($project_id, $file_id)
+    {
         $project = $this->repository->skipPresenter()->find($project_id);
         $file = $project->files()->where('id', $file_id)->firstOrFail();
 

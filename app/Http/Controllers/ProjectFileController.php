@@ -6,10 +6,8 @@ use CodeProject\Repositories\ProjectRepository;
 use CodeProject\Services\ProjectService;
 use CodeProject\Validators\ProjectFileValidator;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Prettus\Validator\Exceptions\ValidatorException;
-use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
-use Authorizer;
+use Prettus\Validator\Exceptions\ValidatorException;
 
 class ProjectFileController extends Controller
 {
@@ -34,7 +32,7 @@ class ProjectFileController extends Controller
         $this->validator = $validator;
 
         $this->middleware('CheckProjectPermissions', ['except' => [
-            'destroy'
+            'destroy',
         ]]);
 
         $this->middleware('CheckProjectOwner', ['only' => [
@@ -45,7 +43,8 @@ class ProjectFileController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -67,8 +66,8 @@ class ProjectFileController extends Controller
             return ['error' => false, 'message' => 'O arquivo foi adicionado ao projeto'];
         } catch (ValidatorException $e) {
             return [
-                'error' => true,
-                'message' => $e->getMessageBag()
+                'error'   => true,
+                'message' => $e->getMessageBag(),
             ];
         } catch (\Exception $e) {
             return ['error' => true, 'message' => 'Ocorreu algum erro adicionar o arquivo ao projeto.'];
@@ -78,13 +77,15 @@ class ProjectFileController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($project_id, $id)
     {
         try {
             $this->service->deleteFile($project_id, $id);
+
             return ['error' => false, 'message' => 'Arquivo deletado com sucesso.'];
         } catch (ModelNotFoundException $e) {
             return ['error' => true, 'message' => 'Arquivo não encontrado.'];

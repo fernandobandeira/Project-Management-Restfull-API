@@ -11,7 +11,7 @@ class ProjectOwnerTransformer extends TransformerAbstract
     {
         return [
             'owner_id' => $owner->id,
-            'name' => $owner->name,
+            'name'     => $owner->name,
         ];
     }
 }

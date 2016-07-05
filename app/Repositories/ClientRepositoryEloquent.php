@@ -2,20 +2,18 @@
 
 namespace CodeProject\Repositories;
 
-
 use CodeProject\Entities\Client;
 use CodeProject\Presenters\ClientPresenter;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Prettus\Repository\Eloquent\BaseRepository;
 
 /**
- * Class ClientRepositoryEloquent
- * @package namespace CodeProject\Repositories;
+ * Class ClientRepositoryEloquent.
  */
 class ClientRepositoryEloquent extends BaseRepository implements ClientRepository
 {
     /**
-     * Specify Model class name
+     * Specify Model class name.
      *
      * @return string
      */
@@ -25,7 +23,7 @@ class ClientRepositoryEloquent extends BaseRepository implements ClientRepositor
     }
 
     /**
-     * Boot up the repository, pushing criteria
+     * Boot up the repository, pushing criteria.
      */
     public function boot()
     {
