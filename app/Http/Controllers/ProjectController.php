@@ -56,9 +56,16 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        try {
+        try 
+        {
+            
             return $this->service->create($request->all());
+            
         } catch (\Exception $e) {
+            
+            
+            
+            
             return ['error' => true, 'message' => 'Ocorreu algum erro ao salvar o projeto.'];
         }
     }
