@@ -7,6 +7,9 @@ php:
   - hhvm
   - nightly
 
+notifications:
+  - email: false
+
 before_script:
   - mkdir bootstrap/cache
   - cp .env.travis .env
