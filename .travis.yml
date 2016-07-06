@@ -8,7 +8,7 @@ php:
   - nightly
 
 notifications:
-  - email: false
+  email: false
 
 before_script:
   - mkdir bootstrap/cache
