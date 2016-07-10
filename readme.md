@@ -23,6 +23,21 @@ bower install
 gulp watch-dev
 ```
 
+####Credenciais
+Os seeders criam algumas credenciais padrões para serem utilizadas nos testes, elas podem ser alteradas nos seguintes arquivos:
+```php
+//UserTableSeeder.php
+[
+    'name'           => 'Fernando',
+    'email'          => 'fernando.bandeira94@gmail.com',
+    'password'       => bcrypt(123456),
+    'remember_token' => str_random(10),
+]
+
+//OAuthClientSeeder.php
+['id' => 'angular_app', 'secret' => 'secret', 'name' => 'Aplicação AngularJS']
+```
+
 ###Produção
 
 ####Backend
