@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', function() {
-   return view('app');
+Route::get('/', function () {
+    return view('app');
 });
 
 Route::group(['middleware' => 'api'], function () {
