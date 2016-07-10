@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('/', function() {
+   return view('app');
+});
+
 Route::group(['middleware' => 'api'], function () {
     Route::post('oauth/access_token', function () {
         return Response::json(Authorizer::issueAccessToken());
