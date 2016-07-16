@@ -1,25 +1,68 @@
-var app = angular.module('app', ['ngRoute', 'angular-oauth2', 'app.controllers']);
+var app = angular.module('app', ['ngRoute', 'angular-oauth2', 'app.controllers', 'app.services']);
 
-angular.module('app.controllers', ['ngMessages','angular-oauth2']);
+angular.module('app.controllers', ['ngMessages', 'angular-oauth2']);
+angular.module('app.services', ['ngResource']);
 
-app.config(['$routeProvider', 'OAuthProvider', function ($routeProvider, OAuthProvider) {
-    $routeProvider
-        .when('/login', {
-            templateUrl: 'build/views/login.html',
-            controller: 'LoginController'
-        })
-        .when('/home', {
-            templateUrl: 'build/views/home.html',
-            controller: 'HomeController'
+app.provider('appConfig', function () {
+    var config = {
+        baseUrl: window.location.origin
+    }
+
+    return {
+        config: config,
+        $get: function () {
+            return config;
+        }
+    }
+});
+
+app.config([
+    '$routeProvider', '$httpProvider',
+    'OAuthProvider', 'OAuthTokenProvider', 'appConfigProvider',
+    function ($routeProvider, $httpProvider, OAuthProvider, OAuthTokenProvider, appConfigProvider) {
+
+        //se for json pega o que esta dentro da chave data
+        $httpProvider.defaults.transformResponse = function (data, headers) {
+            var headersGetter = headers();
+            if (headersGetter['content-type'] == 'application/json' ||
+                headersGetter['content-type'] == 'text/json') {
+                var dataJson = JSON.parse(data);
+                if(dataJson.hasOwnProperty('data')) {
+                    dataJson = dataJson.data;
+                }
+                return dataJson;
+            }
+            return data;
+        };
+
+        $routeProvider
+            .when('/login', {
+                templateUrl: 'build/views/login.html',
+                controller: 'LoginController'
+            })
+            .when('/home', {
+                templateUrl: 'build/views/home.html',
+                controller: 'HomeController'
+            })
+            .when('/clients', {
+                templateUrl: 'build/views/client/list.html',
+                controller: 'ClientListController'
+            });
+
+        OAuthProvider.configure({
+            baseUrl: appConfigProvider.config.baseUrl,
+            grantPath: '/oauth/access_token',
+            clientId: 'angular_app',
+            clientSecret: 'secret' // optional
         });
 
-    OAuthProvider.configure({
-        baseUrl: window.location.origin,
-        grantPath: '/oauth/access_token',
-        clientId: 'angular_app',
-        clientSecret: 'secret' // optional
-    });
-}]);
+        OAuthTokenProvider.configure({
+            name: 'token',
+            options: {
+                secure: false //desativa pois nao estamos com https ativo
+            }
+        });
+    }]);
 
 app.run(['$rootScope', '$window', 'OAuth', function ($rootScope, $window, OAuth) {
     $rootScope.$on('oauth:error', function (event, rejection) {
