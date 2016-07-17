@@ -4,7 +4,8 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Listagem de clientes</div>
                 <div class="panel-body">
-                    <table class="table">
+                    <a ng-href="#/clients/new" class="btn btn-info">Adicionar Novo</a>
+                    <table class="table table-striped">
                         <thead>
                         <tr>
                             <th>
@@ -18,6 +19,9 @@
                             </th>
                             <th>
                                 Telefone
+                            </th>
+                            <th>
+                                Ação
                             </th>
                         </tr>
                         </thead>
@@ -34,6 +38,10 @@
                             </td>
                             <td>
                                 {{c.phone}}
+                            </td>
+                            <td>
+                                <a ng-href="#/clients/{{c.id}}/edit" class="btn btn-success">Editar</a>
+                                <a ng-href="#/clients/{{c.id}}/remove" class="btn btn-danger">Excluir</a>
                             </td>
                         </tr>
                         </tbody>

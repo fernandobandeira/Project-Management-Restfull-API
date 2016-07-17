@@ -581,6 +581,14 @@ app.config([
             .when('/clients/new', {
                 templateUrl: 'build/views/client/new.html',
                 controller: 'ClientNewController'
+            })
+            .when('/clients/:id/edit', {
+                templateUrl: 'build/views/client/edit.html',
+                controller: 'ClientEditController'
+            })
+            .when('/clients/:id/remove', {
+                templateUrl: 'build/views/client/remove.html',
+                controller: 'ClientRemoveController'
             });
 
         OAuthProvider.configure({
@@ -642,8 +650,26 @@ angular.module('app.controllers')
 }]);
 angular.module('app.services')
     .service('Client', ['$resource', 'appConfig', function ($resource, appConfig) {
-        return $resource(appConfig.baseUrl + '/client/:id', {id: '@id'});
+        return $resource(appConfig.baseUrl + '/client/:id', {id: '@id'}, {
+            update: {
+                method: 'PUT'
+            }
+        });
     }])
+angular.module('app.controllers')
+    .controller('ClientEditController',
+        ['$scope', 'Client', '$routeParams', '$location',
+            function ($scope, Client, $routeParams, $location) {
+                $scope.client = new Client.get({id: $routeParams.id});
+
+                $scope.save = function () {
+                    if ($scope.form.$valid) {
+                        Client.update({id: $scope.client.id}, $scope.client, function () {
+                            $location.path('/clients');
+                        });
+                    }
+                }
+            }]);
 angular.module('app.controllers')
     .controller('ClientListController', ['$scope', 'Client', function ($scope, Client) {
         $scope.clients = Client.query();
@@ -661,4 +687,16 @@ angular.module('app.controllers')
             }
         }
     }]);
+angular.module('app.controllers')
+    .controller('ClientRemoveController',
+        ['$scope', 'Client', '$routeParams', '$location',
+            function ($scope, Client, $routeParams, $location) {
+                $scope.client = new Client.get({id: $routeParams.id});
+
+                $scope.remove = function () {
+                    $scope.client.$delete().then(function () {
+                        $location.path('/clients');
+                    });
+                }
+            }]);
 //# sourceMappingURL=all.js.map
