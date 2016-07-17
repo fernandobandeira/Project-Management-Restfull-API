@@ -577,6 +577,10 @@ app.config([
             .when('/clients', {
                 templateUrl: 'build/views/client/list.html',
                 controller: 'ClientListController'
+            })
+            .when('/clients/new', {
+                templateUrl: 'build/views/client/new.html',
+                controller: 'ClientNewController'
             });
 
         OAuthProvider.configure({
@@ -643,5 +647,18 @@ angular.module('app.services')
 angular.module('app.controllers')
     .controller('ClientListController', ['$scope', 'Client', function ($scope, Client) {
         $scope.clients = Client.query();
+    }]);
+angular.module('app.controllers')
+    .controller('ClientNewController',
+        ['$scope', 'Client', '$location', function ($scope, Client, $location) {
+        $scope.client = new Client();
+
+        $scope.save = function() {
+            if($scope.form.$valid) {
+                $scope.client.$save().then(function () {
+                    $location.path('/clients');
+                });
+            }
+        }
     }]);
 //# sourceMappingURL=all.js.map
