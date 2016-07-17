@@ -582,6 +582,10 @@ app.config([
                 templateUrl: 'build/views/client/new.html',
                 controller: 'ClientNewController'
             })
+            .when('/clients/:id', {
+                templateUrl: 'build/views/client/show.html',
+                controller: 'ClientShowController'
+            })
             .when('/clients/:id/edit', {
                 templateUrl: 'build/views/client/edit.html',
                 controller: 'ClientEditController'
@@ -589,6 +593,26 @@ app.config([
             .when('/clients/:id/remove', {
                 templateUrl: 'build/views/client/remove.html',
                 controller: 'ClientRemoveController'
+            })
+            .when('/project/:id/notes', {
+                templateUrl: 'build/views/project/notes/list.html',
+                controller: 'ProjectNotesListController'
+            })
+            .when('/project/:id/notes/new', {
+                templateUrl: 'build/views/project/notes/new.html',
+                controller: 'ProjectNotesNewController'
+            })
+            .when('/project/:id/notes/:idNote', {
+                templateUrl: 'build/views/project/notes/show.html',
+                controller: 'ProjectNotesShowController'
+            })
+            .when('/project/:id/notes/:idNote/edit', {
+                templateUrl: 'build/views/project/notes/edit.html',
+                controller: 'ProjectNotesEditController'
+            })
+            .when('/project/:id/notes/:idNote/remove', {
+                templateUrl: 'build/views/project/notes/remove.html',
+                controller: 'ProjectNotesRemoveController'
             });
 
         OAuthProvider.configure({
@@ -656,6 +680,28 @@ angular.module('app.services')
             }
         });
     }])
+angular.module('app.services')
+    .service('ProjectNote', ['$resource', 'appConfig', function ($resource, appConfig) {
+        return $resource(appConfig.baseUrl + '/project/:id/note/:idNote', {id: '@id', idNote: '@idNote'}, {
+            update: {
+                method: 'PUT'
+            },
+            get: {
+                transformResponse: function (data, headers) {
+                var headersGetter = headers();
+                if (headersGetter['content-type'] == 'application/json' ||
+                    headersGetter['content-type'] == 'text/json') {
+                    var dataJson = JSON.parse(data);
+                    if(dataJson.hasOwnProperty('data')) {
+                        dataJson = dataJson.data;
+                    }
+                    return dataJson[0];
+                }
+                return data;
+            }
+            }
+        });
+    }])
 angular.module('app.controllers')
     .controller('ClientEditController',
         ['$scope', 'Client', '$routeParams', '$location',
@@ -698,5 +744,68 @@ angular.module('app.controllers')
                         $location.path('/clients');
                     });
                 }
+            }]);
+angular.module('app.controllers')
+    .controller('ClientShowController',
+        ['$scope', 'Client', '$routeParams',
+            function ($scope, Client, $routeParams) {
+                $scope.client = new Client.get({id: $routeParams.id});
+            }]);
+angular.module('app.controllers')
+    .controller('ProjectNotesEditController',
+        ['$scope', 'ProjectNote', '$routeParams', '$location',
+            function ($scope, ProjectNote, $routeParams, $location) {
+                $scope.note = new ProjectNote.get({id: $routeParams.id, idNote: $routeParams.idNote});
+
+                $scope.save = function () {
+                    if ($scope.form.$valid) {
+                        $scope.note.project_id = $routeParams.id;
+                        ProjectNote.update(
+                            {id: $routeParams.id,idNote: $scope.note.id},
+                            $scope.note, function () {
+                            $location.path('/project/' + $routeParams.id + '/notes');
+                        });
+                    }
+                }
+            }]);
+angular.module('app.controllers')
+    .controller('ProjectNotesListController', ['$scope', 'ProjectNote', '$routeParams',
+        function ($scope, ProjectNote, $routeParams) {
+        $scope.notes = ProjectNote.query({id: $routeParams.id});
+        $scope.project_id = $routeParams.id;
+    }]);
+angular.module('app.controllers')
+    .controller('ProjectNotesNewController',
+        ['$scope', 'ProjectNote', '$location', '$routeParams',
+            function ($scope, ProjectNote, $location, $routeParams) {
+                $scope.note = new ProjectNote();
+                $scope.note.project_id = $routeParams.id;
+
+                $scope.save = function () {
+                    if ($scope.form.$valid) {
+                        $scope.note.$save({id: $routeParams.id}).then(function () {
+                            $location.path('/project/' + $routeParams.id + '/notes');
+                        });
+                    }
+                }
+            }]);
+angular.module('app.controllers')
+    .controller('ProjectNotesRemoveController',
+        ['$scope', 'ProjectNote', '$routeParams', '$location',
+            function ($scope, ProjectNote, $routeParams, $location) {
+                $scope.note = new ProjectNote.get({id: $routeParams.id, idNote: $routeParams.idNote});
+
+                $scope.remove = function () {
+                    $scope.note.$delete({id: $routeParams.id,idNote: $scope.note.id}).then(function () {
+                        $location.path('/project/' + $routeParams.id + '/notes');
+                    });
+                }
+            }]);
+angular.module('app.controllers')
+    .controller('ProjectNotesShowController',
+        ['$scope', 'ProjectNote', '$routeParams',
+            function ($scope, ProjectNote, $routeParams) {
+                $scope.note = new ProjectNote.get({id: $routeParams.id, idNote: $routeParams.idNote});
+                $scope.project_id = $routeParams.id;
             }]);
 //# sourceMappingURL=all.js.map

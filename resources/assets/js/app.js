@@ -52,6 +52,10 @@ app.config([
                 templateUrl: 'build/views/client/new.html',
                 controller: 'ClientNewController'
             })
+            .when('/clients/:id', {
+                templateUrl: 'build/views/client/show.html',
+                controller: 'ClientShowController'
+            })
             .when('/clients/:id/edit', {
                 templateUrl: 'build/views/client/edit.html',
                 controller: 'ClientEditController'
@@ -59,6 +63,26 @@ app.config([
             .when('/clients/:id/remove', {
                 templateUrl: 'build/views/client/remove.html',
                 controller: 'ClientRemoveController'
+            })
+            .when('/project/:id/notes', {
+                templateUrl: 'build/views/project/notes/list.html',
+                controller: 'ProjectNotesListController'
+            })
+            .when('/project/:id/notes/new', {
+                templateUrl: 'build/views/project/notes/new.html',
+                controller: 'ProjectNotesNewController'
+            })
+            .when('/project/:id/notes/:idNote', {
+                templateUrl: 'build/views/project/notes/show.html',
+                controller: 'ProjectNotesShowController'
+            })
+            .when('/project/:id/notes/:idNote/edit', {
+                templateUrl: 'build/views/project/notes/edit.html',
+                controller: 'ProjectNotesEditController'
+            })
+            .when('/project/:id/notes/:idNote/remove', {
+                templateUrl: 'build/views/project/notes/remove.html',
+                controller: 'ProjectNotesRemoveController'
             });
 
         OAuthProvider.configure({

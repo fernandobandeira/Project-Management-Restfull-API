@@ -84,11 +84,18 @@
     <script src="{{ asset('build/js/controllers/home.js') }}"></script>
     <script src="{{ asset('build/js/controllers/client/clientList.js') }}"></script>
     <script src="{{ asset('build/js/controllers/client/clientNew.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/client/clientShow.js') }}"></script>
     <script src="{{ asset('build/js/controllers/client/clientEdit.js') }}"></script>
     <script src="{{ asset('build/js/controllers/client/clientRemove.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/project/notes/noteList.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/project/notes/noteNew.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/project/notes/noteShow.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/project/notes/noteEdit.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/project/notes/noteRemove.js') }}"></script>
 
     <!-- Services -->
     <script src="{{ asset('build/js/services/client.js') }}"></script>
+    <script src="{{ asset('build/js/services/projectNote.js') }}"></script>
 @else
     <script src="{{ elixir('js/all.js') }}"></script>
 @endif

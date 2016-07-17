@@ -28,7 +28,7 @@
                         <tbody>
                         <tr ng-repeat="c in clients">
                             <td>
-                                {{c.name}}
+                                <a ng-href="#/clients/{{c.id}}">{{c.name}}</a>
                             </td>
                             <td>
                                 {{c.responsible}}
