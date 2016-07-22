@@ -3,14 +3,14 @@ var app = angular.module('app', ['ngRoute', 'angular-oauth2', 'app.controllers',
 angular.module('app.controllers', ['ngMessages', 'angular-oauth2']);
 angular.module('app.services', ['ngResource']);
 
-app.provider('appConfig', function () {
+app.provider('appConfig', function() {
     var config = {
         baseUrl: window.location.origin
     }
 
     return {
         config: config,
-        $get: function () {
+        $get: function() {
             return config;
         }
     }
@@ -19,15 +19,15 @@ app.provider('appConfig', function () {
 app.config([
     '$routeProvider', '$httpProvider',
     'OAuthProvider', 'OAuthTokenProvider', 'appConfigProvider',
-    function ($routeProvider, $httpProvider, OAuthProvider, OAuthTokenProvider, appConfigProvider) {
+    function($routeProvider, $httpProvider, OAuthProvider, OAuthTokenProvider, appConfigProvider) {
 
         //se for json pega o que esta dentro da chave data
-        $httpProvider.defaults.transformResponse = function (data, headers) {
+        $httpProvider.defaults.transformResponse = function(data, headers) {
             var headersGetter = headers();
             if (headersGetter['content-type'] == 'application/json' ||
                 headersGetter['content-type'] == 'text/json') {
                 var dataJson = JSON.parse(data);
-                if(dataJson.hasOwnProperty('data')) {
+                if (dataJson.hasOwnProperty('data')) {
                     dataJson = dataJson.data;
                 }
                 return dataJson;
@@ -98,10 +98,11 @@ app.config([
                 secure: false //desativa pois nao estamos com https ativo
             }
         });
-    }]);
+    }
+]);
 
-app.run(['$rootScope', '$window', 'OAuth', function ($rootScope, $window, OAuth) {
-    $rootScope.$on('oauth:error', function (event, rejection) {
+app.run(['$rootScope', '$window', 'OAuth', function($rootScope, $window, OAuth) {
+    $rootScope.$on('oauth:error', function(event, rejection) {
         // Ignore `invalid_grant` error - should be catched on `LoginController`.
         if ('invalid_grant' === rejection.data.error) {
             return;
