@@ -64,23 +64,43 @@ app.config([
                 templateUrl: 'build/views/client/remove.html',
                 controller: 'ClientRemoveController'
             })
-            .when('/project/:id/notes', {
+            .when('/projects', {
+                templateUrl: 'build/views/project/list.html',
+                controller: 'ProjectListController'
+            })
+            .when('/projects/new', {
+                templateUrl: 'build/views/project/new.html',
+                controller: 'ProjectNewController'
+            })
+            .when('/projects/:id', {
+                templateUrl: 'build/views/project/show.html',
+                controller: 'ProjectShowController'
+            })
+            .when('/projects/:id/edit', {
+                templateUrl: 'build/views/project/edit.html',
+                controller: 'ProjectEditController'
+            })
+            .when('/projects/:id/remove', {
+                templateUrl: 'build/views/project/remove.html',
+                controller: 'ProjectRemoveController'
+            })
+            .when('/projects/:id/notes', {
                 templateUrl: 'build/views/project/notes/list.html',
                 controller: 'ProjectNotesListController'
             })
-            .when('/project/:id/notes/new', {
+            .when('/projects/:id/notes/new', {
                 templateUrl: 'build/views/project/notes/new.html',
                 controller: 'ProjectNotesNewController'
             })
-            .when('/project/:id/notes/:idNote', {
+            .when('/projects/:id/notes/:idNote', {
                 templateUrl: 'build/views/project/notes/show.html',
                 controller: 'ProjectNotesShowController'
             })
-            .when('/project/:id/notes/:idNote/edit', {
+            .when('/projects/:id/notes/:idNote/edit', {
                 templateUrl: 'build/views/project/notes/edit.html',
                 controller: 'ProjectNotesEditController'
             })
-            .when('/project/:id/notes/:idNote/remove', {
+            .when('/projects/:id/notes/:idNote/remove', {
                 templateUrl: 'build/views/project/notes/remove.html',
                 controller: 'ProjectNotesRemoveController'
             });

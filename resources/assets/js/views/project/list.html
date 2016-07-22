@@ -1,0 +1,53 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Listagem de projetos</div>
+                <div class="panel-body">
+                    <a ng-href="#/projects/new" class="btn btn-info">Adicionar Novo</a>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>
+                                Nome
+                            </th>
+                            <th>
+                                Status
+                            </th>
+                            <th>
+                                Progresso
+                            </th>
+                            <th>
+                                Data Estimada
+                            </th>
+                            <th>
+                                Ação
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="p in projects">
+                            <td>
+                                <a ng-href="#/projects/{{p.id}}">{{p.name}}</a>
+                            </td>
+                            <td>
+                                {{p.status}}
+                            </td>
+                            <td>
+                                {{p.progress}}
+                            </td>
+                            <td>
+                                {{p.due_date | date: 'dd/MM/yyyy'}}
+                            </td>
+                            <td>
+                                <a ng-href="#/projects/{{p.id}}/edit" class="btn btn-success">Editar</a>
+                                <a ng-href="#/projects/{{p.id}}/remove" class="btn btn-danger">Excluir</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

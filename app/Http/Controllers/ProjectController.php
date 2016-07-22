@@ -57,7 +57,9 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         try {
-            return $this->service->create($request->all());
+            $data = $request->all();
+            $data['owner_id'] = Authorizer::getResourceOwnerId();
+            return $this->service->create($data);
         } catch (\Exception $e) {
             return ['error' => true, 'message' => 'Ocorreu algum erro ao salvar o projeto.'];
         }
@@ -92,7 +94,9 @@ class ProjectController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            return $this->service->update($request->all(), $id);
+            $data = $request->all();
+            $data['owner_id'] = Authorizer::getResourceOwnerId();
+            return $this->service->update($data, $id);
         } catch (ModelNotFoundException $e) {
             return ['error' => true, 'message' => 'Projeto não encontrado.'];
         } catch (\Exception $e) {

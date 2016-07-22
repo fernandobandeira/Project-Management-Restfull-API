@@ -594,23 +594,43 @@ app.config([
                 templateUrl: 'build/views/client/remove.html',
                 controller: 'ClientRemoveController'
             })
-            .when('/project/:id/notes', {
+            .when('/projects', {
+                templateUrl: 'build/views/project/list.html',
+                controller: 'ProjectListController'
+            })
+            .when('/projects/new', {
+                templateUrl: 'build/views/project/new.html',
+                controller: 'ProjectNewController'
+            })
+            .when('/projects/:id', {
+                templateUrl: 'build/views/project/show.html',
+                controller: 'ProjectShowController'
+            })
+            .when('/projects/:id/edit', {
+                templateUrl: 'build/views/project/edit.html',
+                controller: 'ProjectEditController'
+            })
+            .when('/projects/:id/remove', {
+                templateUrl: 'build/views/project/remove.html',
+                controller: 'ProjectRemoveController'
+            })
+            .when('/projects/:id/notes', {
                 templateUrl: 'build/views/project/notes/list.html',
                 controller: 'ProjectNotesListController'
             })
-            .when('/project/:id/notes/new', {
+            .when('/projects/:id/notes/new', {
                 templateUrl: 'build/views/project/notes/new.html',
                 controller: 'ProjectNotesNewController'
             })
-            .when('/project/:id/notes/:idNote', {
+            .when('/projects/:id/notes/:idNote', {
                 templateUrl: 'build/views/project/notes/show.html',
                 controller: 'ProjectNotesShowController'
             })
-            .when('/project/:id/notes/:idNote/edit', {
+            .when('/projects/:id/notes/:idNote/edit', {
                 templateUrl: 'build/views/project/notes/edit.html',
                 controller: 'ProjectNotesEditController'
             })
-            .when('/project/:id/notes/:idNote/remove', {
+            .when('/projects/:id/notes/:idNote/remove', {
                 templateUrl: 'build/views/project/notes/remove.html',
                 controller: 'ProjectNotesRemoveController'
             });
@@ -649,10 +669,12 @@ app.run(['$rootScope', '$window', 'OAuth', function($rootScope, $window, OAuth) 
 }]);
 
 angular.module('app.controllers')
-    .controller('HomeController', ['$scope', function ($scope) {
+    .controller('HomeController', ['$scope', '$cookies', function ($scope, $cookies) {
+        console.log($cookies.getObject('user').email);
     }]);
 angular.module('app.controllers')
-.controller('LoginController',['$scope', '$location', 'OAuth', function($scope, $location, OAuth) {
+.controller('LoginController',['$scope', '$location','$cookies', 'User', 'OAuth',
+    function($scope, $location, $cookies, User, OAuth) {
     $scope.user = {
         username: '',
         password: ''
@@ -666,7 +688,10 @@ angular.module('app.controllers')
     $scope.login = function() {
         if($scope.form.$valid) {
             OAuth.getAccessToken($scope.user).then(function() {
-                $location.path('home');
+                User.authenticated({}, {}, function(data) {
+                    $cookies.putObject('user', data);
+                    $location.path('home');
+                });
             }, function(data) {
                 $scope.error.error = true;
                 $scope.error.message = data.data.error_description;
@@ -677,6 +702,14 @@ angular.module('app.controllers')
 angular.module('app.services')
     .service('Client', ['$resource', 'appConfig', function ($resource, appConfig) {
         return $resource(appConfig.baseUrl + '/client/:id', {id: '@id'}, {
+            update: {
+                method: 'PUT'
+            }
+        });
+    }])
+angular.module('app.services')
+    .service('Project', ['$resource', 'appConfig', function ($resource, appConfig) {
+        return $resource(appConfig.baseUrl + '/project/:id', {id: '@id'}, {
             update: {
                 method: 'PUT'
             }
@@ -694,6 +727,15 @@ angular.module('app.services')
         });
     }])
 
+angular.module('app.services')
+    .service('User', ['$resource', 'appConfig', function ($resource, appConfig) {
+        return $resource(appConfig.baseUrl + '/user', {}, {
+            authenticated: {
+                url: appConfig.baseUrl + '/user/authenticated',
+                method: 'GET'
+            }
+        });
+    }])
 angular.module('app.controllers')
     .controller('ClientEditController',
         ['$scope', 'Client', '$routeParams', '$location',
@@ -744,6 +786,60 @@ angular.module('app.controllers')
                 $scope.client = new Client.get({id: $routeParams.id});
             }]);
 angular.module('app.controllers')
+    .controller('ProjectEditController',
+        ['$scope', 'Project', 'Client', '$routeParams', '$location',
+            function ($scope, Project, Client, $routeParams, $location) {
+                $scope.project = new Project.get({id: $routeParams.id}, function(projectAssigned) {
+                    $scope.project.client_id = projectAssigned.client.data.id;
+                    $scope.project.due_date = new Date(projectAssigned.due_date);
+                });
+                $scope.clients = Client.query();
+
+                $scope.save = function () {
+                    if ($scope.form.$valid) {
+                        Project.update({id: $scope.project.id}, $scope.project, function () {
+                            $location.path('/projects');
+                        });
+                    }
+                }
+            }]);
+angular.module('app.controllers')
+    .controller('ProjectListController', ['$scope', 'Project', function ($scope, Project) {
+        $scope.projects = Project.query();
+    }]);
+angular.module('app.controllers')
+    .controller('ProjectNewController',
+        ['$scope', 'Project', 'Client', '$location', function ($scope, Project, Client, $location) {
+        $scope.project = new Project();
+        $scope.clients = Client.query();
+
+        $scope.save = function() {
+            if($scope.form.$valid) {
+                $scope.project.$save().then(function () {
+                    $location.path('/projects');
+                });
+            }
+        }
+    }]);
+angular.module('app.controllers')
+    .controller('ProjectRemoveController',
+        ['$scope', 'Project', '$routeParams', '$location',
+            function ($scope, Project, $routeParams, $location) {
+                $scope.project = new Project.get({id: $routeParams.id});
+
+                $scope.remove = function () {
+                    $scope.project.$delete().then(function () {
+                        $location.path('/projects');
+                    });
+                }
+            }]);
+angular.module('app.controllers')
+    .controller('ProjectShowController',
+        ['$scope', 'Project', '$routeParams',
+            function ($scope, Project, $routeParams) {
+                $scope.project = new Project.get({id: $routeParams.id});
+            }]);
+angular.module('app.controllers')
     .controller('ProjectNotesEditController',
         ['$scope', 'ProjectNote', '$routeParams', '$location',
             function ($scope, ProjectNote, $routeParams, $location) {
@@ -755,7 +851,7 @@ angular.module('app.controllers')
                         ProjectNote.update(
                             {id: $routeParams.id,idNote: $scope.note.id},
                             $scope.note, function () {
-                            $location.path('/project/' + $routeParams.id + '/notes');
+                            $location.path('/projects/' + $routeParams.id + '/notes');
                         });
                     }
                 }
@@ -776,7 +872,7 @@ angular.module('app.controllers')
                 $scope.save = function () {
                     if ($scope.form.$valid) {
                         $scope.note.$save({id: $routeParams.id}).then(function () {
-                            $location.path('/project/' + $routeParams.id + '/notes');
+                            $location.path('/projects/' + $routeParams.id + '/notes');
                         });
                     }
                 }
@@ -789,7 +885,7 @@ angular.module('app.controllers')
 
                 $scope.remove = function () {
                     $scope.note.$delete({id: $routeParams.id,idNote: $scope.note.id}).then(function () {
-                        $location.path('/project/' + $routeParams.id + '/notes');
+                        $location.path('/projects/' + $routeParams.id + '/notes');
                     });
                 }
             }]);

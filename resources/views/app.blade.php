@@ -89,6 +89,11 @@
     <script src="{{ asset('build/js/controllers/client/clientShow.js') }}"></script>
     <script src="{{ asset('build/js/controllers/client/clientEdit.js') }}"></script>
     <script src="{{ asset('build/js/controllers/client/clientRemove.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/project/projectList.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/project/projectNew.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/project/projectShow.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/project/projectEdit.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/project/projectRemove.js') }}"></script>
     <script src="{{ asset('build/js/controllers/project/notes/noteList.js') }}"></script>
     <script src="{{ asset('build/js/controllers/project/notes/noteNew.js') }}"></script>
     <script src="{{ asset('build/js/controllers/project/notes/noteShow.js') }}"></script>
@@ -97,7 +102,9 @@
 
     <!-- Services -->
     <script src="{{ asset('build/js/services/client.js') }}"></script>
+    <script src="{{ asset('build/js/services/project.js') }}"></script>
     <script src="{{ asset('build/js/services/projectNote.js') }}"></script>
+    <script src="{{ asset('build/js/services/user.js') }}"></script>
 @else
     <script src="{{ elixir('js/all.js') }}"></script>
 @endif
