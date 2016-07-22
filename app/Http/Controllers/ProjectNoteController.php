@@ -66,13 +66,14 @@ class ProjectNoteController extends Controller
     public function show($project_id, $id)
     {
         try {
-          $result = $this->repository->findWhere(['project_id' => $project_id, 'id' => $id]);
-          if (isset($result['data']) && count($result['data']) == 1) {
-            $result = [
-              'data' => $result['data'][0]
+            $result = $this->repository->findWhere(['project_id' => $project_id, 'id' => $id]);
+            if (isset($result['data']) && count($result['data']) == 1) {
+                $result = [
+              'data' => $result['data'][0],
             ];
-          }
-          return $result;
+            }
+
+            return $result;
         } catch (ModelNotFoundException $e) {
             return ['error' => true, 'message' => 'Nota do projeto não encontrada.'];
         } catch (\Exception $e) {
