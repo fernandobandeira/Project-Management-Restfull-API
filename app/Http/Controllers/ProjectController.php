@@ -59,6 +59,7 @@ class ProjectController extends Controller
         try {
             $data = $request->all();
             $data['owner_id'] = Authorizer::getResourceOwnerId();
+
             return $this->service->create($data);
         } catch (\Exception $e) {
             return ['error' => true, 'message' => 'Ocorreu algum erro ao salvar o projeto.'];
@@ -96,6 +97,7 @@ class ProjectController extends Controller
         try {
             $data = $request->all();
             $data['owner_id'] = Authorizer::getResourceOwnerId();
+
             return $this->service->update($data, $id);
         } catch (ModelNotFoundException $e) {
             return ['error' => true, 'message' => 'Projeto não encontrado.'];
