@@ -1,5 +1,6 @@
 # Project Management Restfull API
 [![StyleCI](https://styleci.io/repos/58147256/shield)](https://styleci.io/repos/58147256)
+[![Dependency Status](https://www.versioneye.com/user/projects/5792664bb7463b0037915d43/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/5792664bb7463b0037915d43)
 
 Esta é uma restfull API desenvolvida com o Laravel 5.2, com o objetivo de aprender a criar aplicações restfull da maneira correta.
 
