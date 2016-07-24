@@ -12,10 +12,13 @@
                                 Nome
                             </th>
                             <th>
-                                Status
+                                Cliente
                             </th>
                             <th>
                                 Progresso
+                            </th>
+                            <th>
+                                Status
                             </th>
                             <th>
                                 Data Estimada
@@ -31,13 +34,16 @@
                                 <a ng-href="#/projects/{{p.id}}">{{p.name}}</a>
                             </td>
                             <td>
-                                {{p.status}}
+                                {{p.client.data.name}}
                             </td>
                             <td>
                                 {{p.progress}}
                             </td>
                             <td>
-                                {{p.due_date | date: 'dd/MM/yyyy'}}
+                                {{p.status}}
+                            </td>
+                            <td>
+                                {{p.due_date | dateBr}}
                             </td>
                             <td>
                                 <a ng-href="#/projects/{{p.id}}/edit" class="btn btn-success">Editar</a>
