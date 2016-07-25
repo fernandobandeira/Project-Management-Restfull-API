@@ -5,8 +5,7 @@
                 <div class="panel-heading">Edição de projeto</div>
                 <div class="panel-body">
                     <form class="form-horizontal" name="form" role="form" method="POST" ng-submit="save()">
-                        <div class="form-group"
-                             ng-class="{'has-error': !form.name.$valid && form.name.$touched, 'has-success': form.name.$valid && form.name.$touched}">
+                        <div class="form-group" ng-class="{'has-error': !form.name.$valid && form.name.$touched, 'has-success': form.name.$valid && form.name.$touched}">
                             <label class="col-md-4 control-label">Nome</label>
                             <div class="col-md-6">
                                 <input type="text" class="form-control" name="name" ng-model="project.name" required>
@@ -15,37 +14,39 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group"
-                             ng-class="{'has-error': !form.description.$valid && form.description.$touched, 'has-success': form.description.$valid && form.description.$touched}">
+                        <div class="form-group" ng-class="{'has-error': !form.description.$valid && form.description.$touched, 'has-success': form.description.$valid && form.description.$touched}">
                             <label class="col-md-4 control-label">Descrição</label>
                             <div class="col-md-6">
                                 <textarea class="form-control" name="description" ng-model="project.description"></textarea>
                             </div>
                         </div>
-                        <div class="form-group"
-                             ng-class="{'has-error': !form.client_id.$valid && form.client_id.$touched, 'has-success': form.client_id.$valid && form.client_id.$touched}">
+                        <div class="form-group" ng-class="{'has-error': !form.client_id.$valid && form.client_id.$touched, 'has-success': form.client_id.$valid && form.client_id.$touched}">
                             <label class="col-md-4 control-label">Cliente</label>
                             <div class="col-md-6">
-                                <select ng-model="project.client_id" ng-options="client.id as client.name for client in clients" name="client_id" class="form-control" required>
-                                    <option value="">Escolha um cliente</option>
-                                </select>
+                                <input type="text" class="form-control" name="client_id" ng-model="clientSelected" required uib-typeahead="client as client.name for client in getClients($viewValue)|limitTo:3" typeahead-input-formatter="formatName($model)"
+                                    typeahead-on-select="selectClient($item)" typeahead-editable="false">
                                 <div ng-messages="form.client_id.$error" class="help-block" ng-show="form.client_id.$touched">
                                     <div ng-message="required">Campo obrigatório</div>
+                                    <div ng-message="editable">Selecione um cliente válido</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group"
-                             ng-class="{'has-error': !form.due_date.$valid && form.due_date.$touched, 'has-success': form.due_date.$valid && form.due_date.$touched}">
+                        <div class="form-group" ng-class="{'has-error': !form.due_date.$valid && form.due_date.$touched, 'has-success': form.due_date.$valid && form.due_date.$touched}">
                             <label class="col-md-4 control-label">Data de Entrega</label>
                             <div class="col-md-6">
-                                <input type="date" class="form-control" name="due_date" ng-model="project.due_date" required>
+                              <p class="input-group">
+                                  <input name="due_date" type="text" class="form-control" uib-datepicker-popup="dd/MM/yyyy" ng-model="project.due_date" is-open="due_date.status.opened" datepicker-options="dateOptions" required close-text="Fechar" />
+                                  <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="open()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                  </span>
+                              </p>
                                 <div ng-messages="form.due_date.$error" class="help-block" ng-show="form.due_date.$touched">
                                     <div ng-message="required">Campo obrigatório</div>
+                                    <div ng-message="date">Data inválida</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group"
-                             ng-class="{'has-error': !form.progress.$valid && form.progress.$touched, 'has-success': form.progress.$valid && form.progress.$touched}">
+                        <div class="form-group" ng-class="{'has-error': !form.progress.$valid && form.progress.$touched, 'has-success': form.progress.$valid && form.progress.$touched}">
                             <label class="col-md-4 control-label">Progresso (%)</label>
                             <div class="col-md-6">
                                 <input type="number" class="form-control" name="progress" ng-model="project.progress" min="0" max="100">
@@ -55,8 +56,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group"
-                             ng-class="{'has-error': !form.status.$valid && form.status.$touched, 'has-success': form.status.$valid && form.status.$touched}">
+                        <div class="form-group" ng-class="{'has-error': !form.status.$valid && form.status.$touched, 'has-success': form.status.$valid && form.status.$touched}">
                             <label class="col-md-4 control-label">Status</label>
                             <div class="col-md-6">
                                 <select ng-model="project.status" ng-options="s.value as s.label for s in status" name="status" class="form-control" required>

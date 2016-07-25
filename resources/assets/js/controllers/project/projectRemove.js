@@ -8,5 +8,5 @@ angular.module('app.controllers')
                     $scope.project.$delete().then(function () {
                         $location.path('/projects');
                     });
-                }
+                };
             }]);
