@@ -54,7 +54,7 @@ class ProjectFileService
             return $projectFile;
         } catch (ValidatorException $e) {
             return [
-              'error'   => true,
+              'error' => true,
               'message' => $e->getMessageBag(),
           ];
         }
@@ -68,7 +68,7 @@ class ProjectFileService
             return $this->repository->update($data, $id);
         } catch (ValidatorException $e) {
             return [
-                'error'   => true,
+                'error' => true,
                 'message' => $e->getMessageBag(),
             ];
         }

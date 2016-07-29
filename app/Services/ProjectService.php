@@ -31,7 +31,7 @@ class ProjectService
             return $this->repository->create($data);
         } catch (ValidatorException $e) {
             return [
-                'error'   => true,
+                'error' => true,
                 'message' => $e->getMessageBag(),
             ];
         }
@@ -45,7 +45,7 @@ class ProjectService
             return $this->repository->update($data, $id);
         } catch (ValidatorException $e) {
             return [
-                'error'   => true,
+                'error' => true,
                 'message' => $e->getMessageBag(),
             ];
         }

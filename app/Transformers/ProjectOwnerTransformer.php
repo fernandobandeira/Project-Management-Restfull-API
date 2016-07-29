@@ -10,8 +10,8 @@ class ProjectOwnerTransformer extends TransformerAbstract
     public function transform(User $owner)
     {
         return [
-            'id'       => $owner->id,
-            'name'     => $owner->name,
+            'id' => $owner->id,
+            'name' => $owner->name,
         ];
     }
 }
