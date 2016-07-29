@@ -4,8 +4,6 @@ namespace CodeProject\Services;
 
 use CodeProject\Repositories\ProjectRepository;
 use CodeProject\Validators\ProjectValidator;
-use Illuminate\Contracts\Filesystem\Factory as Storage;
-use Illuminate\Filesystem\Filesystem as File;
 use Prettus\Validator\Exceptions\ValidatorException;
 
 class ProjectService
