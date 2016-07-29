@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Listagem de notas</div>
+                <div class="panel-body">
+                    <a ng-href="#/projects/{{project_id}}/notes/new" class="btn btn-info">Adicionar Nova</a>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>
+                                Nome
+                            </th>
+                            <th>
+                                Descrição
+                            </th>
+                            <th>
+                                Ação
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="n in notes">
+                            <td>
+                                <a ng-href="#/project/{{project_id}}/notes/{{n.id}}">{{n.title}}</a>
+                            </td>
+                            <td>
+                                {{n.note | limitTo:50}}...
+                            </td>
+                            <td>
+                                <a ng-href="#/projects/{{project_id}}/notes/{{n.id}}/edit" class="btn btn-success">Editar</a>
+                                <a ng-href="#/projects/{{project_id}}/notes/{{n.id}}/remove" class="btn btn-danger">Excluir</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

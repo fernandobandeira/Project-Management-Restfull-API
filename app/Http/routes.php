@@ -26,7 +26,8 @@ Route::group(['middleware' => 'api'], function () {
         Route::get('/project/{project}/members', 'ProjectController@members')->name('project.member');
         Route::resource('project.note', 'ProjectNoteController', ['except' => ['create', 'edit']]);
         Route::resource('project.task', 'ProjectTaskController', ['except' => ['create', 'edit']]);
-        Route::resource('project.file', 'ProjectFileController', ['only' => ['store', 'destroy']]);
+        Route::resource('project.file', 'ProjectFileController', ['except' => ['create', 'edit']]);
+        Route::get('/project/{project}/file/{file}/download', 'ProjectFileController@showFile')->name('project.download');
         Route::get('/user/authenticated', 'UserController@authenticated')->name('user.authenticated');
     });
 });

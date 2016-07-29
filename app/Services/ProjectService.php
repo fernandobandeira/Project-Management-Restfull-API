@@ -18,21 +18,11 @@ class ProjectService
      * @var ProjectValidator
      */
     protected $validator;
-    /**
-     * @var Storage
-     */
-    private $storage;
-    /**
-     * @var File
-     */
-    private $file;
 
-    public function __construct(ProjectRepository $repository, ProjectValidator $validator, Storage $storage, File $file)
+    public function __construct(ProjectRepository $repository, ProjectValidator $validator)
     {
         $this->repository = $repository;
         $this->validator = $validator;
-        $this->storage = $storage;
-        $this->file = $file;
     }
 
     public function create(array $data)
@@ -71,22 +61,5 @@ class ProjectService
                 ->where('project_members.user_id', '=', $user_id)
                 ->orWhere('owner_id', '=', $user_id);
         })->all();
-    }
-
-    public function createFile(array $data)
-    {
-        $project = $this->repository->skipPresenter()->find($data['project_id']);
-        $projectFile = $project->files()->create($data);
-
-        $this->storage->put($projectFile->id.'.'.$data['extension'], $this->file->get($data['file']));
-    }
-
-    public function deleteFile($project_id, $file_id)
-    {
-        $project = $this->repository->skipPresenter()->find($project_id);
-        $file = $project->files()->where('id', $file_id)->firstOrFail();
-
-        $this->storage->delete($file->id.'.'.$file->extension);
-        $file->delete();
     }
 }
