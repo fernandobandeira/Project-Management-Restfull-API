@@ -46,16 +46,16 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => \CodeProject\Http\Middleware\Authenticate::class,
-        'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
-        'guest' => \CodeProject\Http\Middleware\RedirectIfAuthenticated::class,
-        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'oauth' => \LucaDegasperi\OAuth2Server\Middleware\OAuthMiddleware::class,
-        'oauth-user' => \LucaDegasperi\OAuth2Server\Middleware\OAuthUserOwnerMiddleware::class,
-        'oauth-client' => \LucaDegasperi\OAuth2Server\Middleware\OAuthClientOwnerMiddleware::class,
+        'auth'                       => \CodeProject\Http\Middleware\Authenticate::class,
+        'auth.basic'                 => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+        'can'                        => \Illuminate\Foundation\Http\Middleware\Authorize::class,
+        'guest'                      => \CodeProject\Http\Middleware\RedirectIfAuthenticated::class,
+        'throttle'                   => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'oauth'                      => \LucaDegasperi\OAuth2Server\Middleware\OAuthMiddleware::class,
+        'oauth-user'                 => \LucaDegasperi\OAuth2Server\Middleware\OAuthUserOwnerMiddleware::class,
+        'oauth-client'               => \LucaDegasperi\OAuth2Server\Middleware\OAuthClientOwnerMiddleware::class,
         'check-authorization-params' => \LucaDegasperi\OAuth2Server\Middleware\CheckAuthCodeRequestMiddleware::class,
-        'CheckProjectOwner' => \CodeProject\Http\Middleware\CheckProjectOwner::class,
-        'CheckProjectPermissions' => \CodeProject\Http\Middleware\CheckProjectPermissions::class,
+        'CheckProjectOwner'          => \CodeProject\Http\Middleware\CheckProjectOwner::class,
+        'CheckProjectPermissions'    => \CodeProject\Http\Middleware\CheckProjectPermissions::class,
     ];
 }
