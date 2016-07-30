@@ -22,7 +22,7 @@
                         <tbody>
                         <tr ng-repeat="n in notes">
                             <td>
-                                <a ng-href="#/project/{{project_id}}/notes/{{n.id}}">{{n.title}}</a>
+                                <a ng-href="#/projects/{{project_id}}/notes/{{n.id}}">{{n.title}}</a>
                             </td>
                             <td>
                                 {{n.note | limitTo:50}}...

@@ -24,6 +24,9 @@
                                 Data Estimada
                             </th>
                             <th>
+                                Relacionados
+                            </th>
+                            <th>
                                 Ação
                             </th>
                         </tr>
@@ -44,6 +47,10 @@
                             </td>
                             <td>
                                 {{p.due_date | dateBr}}
+                            </td>
+                            <td>
+                                <a ng-href="#/projects/{{p.id}}/notes">Notas</a> | 
+                                <a ng-href="#/projects/{{p.id}}/files">Arquivos</a>
                             </td>
                             <td>
                                 <a ng-href="#/projects/{{p.id}}/edit" class="btn btn-success">Editar</a>
