@@ -11,17 +11,17 @@ use Illuminate\Http\Request;
 class ProjectFileController extends Controller
 {
     /**
-    * @var ProjectFileRepository
-    */
+     * @var ProjectFileRepository
+     */
     private $repository;
 
     /**
-    * @var ProjectFileService
-    */
+     * @var ProjectFileService
+     */
     private $service;
     /**
-    * @var ProjectFileValidator
-    */
+     * @var ProjectFileValidator
+     */
     private $validator;
 
     public function __construct(
