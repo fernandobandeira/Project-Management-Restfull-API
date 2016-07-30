@@ -8,8 +8,8 @@ use LucaDegasperi\OAuth2Server\Facades\Authorizer;
 class UserController extends Controller
 {
     /**
-   * @var ProjectRepository
-   */
+     * @var ProjectRepository
+     */
     private $repository;
 
     public function __construct(UserRepository $repository)
