@@ -53,11 +53,13 @@ class ProjectService
 
     public function userProjects($user_id)
     {
-        return $this->repository->scopeQuery(function ($query) use ($user_id) {
-            return $query->select('projects.*')
-                ->leftJoin('project_members', 'project_members.project_id', '=', 'projects.id')
-                ->where('project_members.user_id', '=', $user_id)
-                ->orWhere('owner_id', '=', $user_id);
-        })->all();
+        return $this->repository->scopeQuery(
+            function ($query) use ($user_id) {
+                return $query->select('projects.*')
+                    ->leftJoin('project_members', 'project_members.project_id', '=', 'projects.id')
+                    ->where('project_members.user_id', '=', $user_id)
+                    ->orWhere('owner_id', '=', $user_id);
+            }
+        )->all();
     }
 }

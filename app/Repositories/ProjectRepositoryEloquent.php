@@ -73,9 +73,11 @@ class ProjectRepositoryEloquent extends BaseRepository implements ProjectReposit
     public function isMember($project_id, $member_id)
     {
         $project = $this
-            ->whereHas('members', function ($query) use ($member_id) {
-                return $query->where('id', $member_id);
-            })
+            ->whereHas(
+                'members', function ($query) use ($member_id) {
+                    return $query->where('id', $member_id);
+                }
+            )
             ->skipPresenter()
             ->find($project_id);
 

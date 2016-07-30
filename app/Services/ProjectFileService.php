@@ -56,7 +56,7 @@ class ProjectFileService
             return [
               'error'   => true,
               'message' => $e->getMessageBag(),
-          ];
+            ];
         }
     }
 
@@ -95,7 +95,7 @@ class ProjectFileService
     {
         switch ($this->storage->getDefaultDriver()) {
         case 'local':
-          return $this->storage->getDriver()->getAdapter()->getPathPrefix().'/'.$projectFile->id.'/'.$projectFile->extension;
-      }
+            return $this->storage->getDriver()->getAdapter()->getPathPrefix().'/'.$projectFile->id.'/'.$projectFile->extension;
+        }
     }
 }

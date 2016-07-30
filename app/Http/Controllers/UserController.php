@@ -10,7 +10,7 @@ class UserController extends Controller
     /**
    * @var ProjectRepository
    */
-  private $repository;
+    private $repository;
 
     public function __construct(UserRepository $repository)
     {
