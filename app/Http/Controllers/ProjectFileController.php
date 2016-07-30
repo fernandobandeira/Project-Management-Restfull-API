@@ -140,7 +140,7 @@ class ProjectFileController extends Controller
     {
         try {
             $this->service->delete($id);
-            
+
             return ['error' => false, 'message' => 'Arquivo deletado com sucesso.'];
         } catch (ModelNotFoundException $e) {
             return ['error' => true, 'message' => 'Arquivo não encontrado.'];
