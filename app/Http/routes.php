@@ -12,21 +12,25 @@
 */
 
 Route::get(
-    '/', function () {
+    '/',
+    function () {
         return view('app');
     }
 );
 
 Route::group(
-    ['middleware' => 'api'], function () {
+    ['middleware' => 'api'],
+    function () {
         Route::post(
-            'oauth/access_token', function () {
+            'oauth/access_token',
+            function () {
                 return Response::json(Authorizer::issueAccessToken());
             }
         )->name('oauth.access_token');
 
         Route::group(
-            ['middleware' => 'oauth'], function () {
+            ['middleware' => 'oauth'],
+            function () {
                 Route::resource('client', 'ClientController', ['except' => ['create', 'edit']]);
                 Route::resource('project', 'ProjectController', ['except' => ['create', 'edit']]);
                 Route::get('/project/{project}/members', 'ProjectController@members')->name('project.member');

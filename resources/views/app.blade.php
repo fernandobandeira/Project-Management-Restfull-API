@@ -104,10 +104,17 @@
     <script src="{{ asset('build/js/controllers/project/notes/noteEdit.js') }}"></script>
     <script src="{{ asset('build/js/controllers/project/notes/noteRemove.js') }}"></script>
 
+    <script src="{{ asset('build/js/controllers/project/files/fileList.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/project/files/fileNew.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/project/files/fileShow.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/project/files/fileEdit.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/project/files/fileRemove.js') }}"></script>
+
     <!-- Filters -->
     <script src="{{ asset('build/js/filters/dateBr.js') }}"></script>
 
     <!-- Services -->
+    <script src="{{ asset('build/js/services/url.js') }}"></script>
     <script src="{{ asset('build/js/services/client.js') }}"></script>
     <script src="{{ asset('build/js/services/project.js') }}"></script>
     <script src="{{ asset('build/js/services/projectNote.js') }}"></script>

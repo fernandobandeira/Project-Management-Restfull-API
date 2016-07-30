@@ -2,9 +2,9 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Listagem de notas</div>
+                <div class="panel-heading">Listagem de arquivos de projetos</div>
                 <div class="panel-body">
-                    <a ng-href="#/projects/{{project_id}}/notes/new" class="btn btn-info">Adicionar Nova</a>
+                    <a ng-href="#/projects/{{project_id}}/files/new" class="btn btn-info">Adicionar Novo</a>
                     <table class="table table-striped">
                         <thead>
                         <tr>
@@ -20,16 +20,17 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="n in notes">
+                        <tr ng-repeat="f in files">
                             <td>
-                                <a ng-href="#/project/{{project_id}}/notes/{{n.id}}">{{n.title}}</a>
+                                <a ng-href="#/project/{{project_id}}/files/{{f.id}}">{{f.name}}</a>
                             </td>
                             <td>
-                                {{n.note | limitTo:50}}...
+                                {{f.description | limitTo:50}}...
                             </td>
                             <td>
-                                <a ng-href="#/projects/{{project_id}}/notes/{{n.id}}/edit" class="btn btn-success">Editar</a>
-                                <a ng-href="#/projects/{{project_id}}/notes/{{n.id}}/remove" class="btn btn-danger">Excluir</a>
+                                <a ng-href="/project/{{project_id}}/file/{{f.id}}/download" class="btn btn-primary">Download</a>
+                                <a ng-href="#/projects/{{project_id}}/files/{{f.id}}/edit" class="btn btn-success">Editar</a>
+                                <a ng-href="#/projects/{{project_id}}/files/{{f.id}}/remove" class="btn btn-danger">Excluir</a>
                             </td>
                         </tr>
                         </tbody>

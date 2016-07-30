@@ -35,6 +35,11 @@ class RepositoryServiceProvider extends ServiceProvider
         );
 
         $this->app->bind(
+            \CodeProject\Repositories\ProjectFileRepository::class,
+            \CodeProject\Repositories\ProjectFileRepositoryEloquent::class
+        );
+
+        $this->app->bind(
             \CodeProject\Repositories\ProjectTaskRepository::class,
             \CodeProject\Repositories\ProjectTaskRepositoryEloquent::class
         );

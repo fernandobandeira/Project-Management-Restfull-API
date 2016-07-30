@@ -1,6 +1,6 @@
 <?php
 
-namespace Http\Controllers;
+namespace CodeProject\Http\Controllers;
 
 use CodeProject\Repositories\ProjectFileRepository;
 use CodeProject\Services\ProjectFileService;
@@ -76,7 +76,7 @@ class ProjectFileController extends Controller
             $data['name'] = $request->name;
             $data['extension'] = $extension;
             $data['description'] = $request->description;
-            $data['project_id'] = $request->project;
+            $data['project_id'] = $request->project_id;
             $data['file'] = $file;
 
             return $this->service->create($data);
@@ -140,7 +140,7 @@ class ProjectFileController extends Controller
     {
         try {
             $this->service->delete($id);
-
+            
             return ['error' => false, 'message' => 'Arquivo deletado com sucesso.'];
         } catch (ModelNotFoundException $e) {
             return ['error' => true, 'message' => 'Arquivo não encontrado.'];
