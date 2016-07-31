@@ -7,8 +7,8 @@ use CodeProject\Repositories\ProjectRepository;
 use CodeProject\Validators\ProjectFileValidator;
 use Illuminate\Contracts\Filesystem\Factory as Storage;
 use Illuminate\Filesystem\Filesystem as File;
-use Prettus\Validator\Exceptions\ValidatorException;
 use Prettus\Validator\Contracts\ValidatorInterface;
+use Prettus\Validator\Exceptions\ValidatorException;
 
 class ProjectFileService
 {
@@ -88,12 +88,14 @@ class ProjectFileService
     public function getFileName($id)
     {
         $projectFile = $this->repository->skipPresenter()->find($id);
+
         return $projectFile->getFileName();
     }
 
     public function getFilePath($id)
     {
         $projectFile = $this->repository->skipPresenter()->find($id);
+
         return $this->getBaseUrl($projectFile);
     }
 

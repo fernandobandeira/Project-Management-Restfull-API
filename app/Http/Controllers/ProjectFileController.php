@@ -109,10 +109,11 @@ class ProjectFileController extends Controller
         $filePath = $this->service->getFilePath($id);
         $fileContent = file_get_contents($filePath);
         $file64 = base64_encode($fileContent);
+
         return [
             'file' => $file64,
             'size' => filesize($filePath),
-            'name' => $this->service->getFileName($id)
+            'name' => $this->service->getFileName($id),
         ];
     }
 
