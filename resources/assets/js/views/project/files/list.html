@@ -22,13 +22,12 @@
                         <tbody>
                         <tr ng-repeat="f in files">
                             <td>
-                                <a ng-href="#/project/{{project_id}}/files/{{f.id}}">{{f.name}}</a>
+                                <a ng-href="/project/{{project_id}}/file/{{f.id}}/download" target="_blank">{{f.name}}</a>
                             </td>
                             <td>
                                 {{f.description | limitTo:50}}...
                             </td>
                             <td>
-                                <a ng-href="/project/{{project_id}}/file/{{f.id}}/download" class="btn btn-primary">Download</a>
                                 <a ng-href="#/projects/{{project_id}}/files/{{f.id}}/edit" class="btn btn-success">Editar</a>
                                 <a ng-href="#/projects/{{project_id}}/files/{{f.id}}/remove" class="btn btn-danger">Excluir</a>
                             </td>
