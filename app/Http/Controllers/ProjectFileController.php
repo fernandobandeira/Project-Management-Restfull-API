@@ -96,7 +96,7 @@ class ProjectFileController extends Controller
     public function show($project_id, $id)
     {
         try {
-            return $this->repository->findWhere(['project_id' => $project_id, 'id' => $id]);
+            return $this->repository->find($id);
         } catch (ModelNotFoundException $e) {
             return ['error' => true, 'message' => 'Arquivo do projeto não encontrado.'];
         } catch (\Exception $e) {
