@@ -7,31 +7,38 @@
                     <a ng-href="#/projects/{{project_id}}/files/new" class="btn btn-info">Adicionar Novo</a>
                     <table class="table table-striped">
                         <thead>
-                        <tr>
-                            <th>
-                                Nome
-                            </th>
-                            <th>
-                                Descrição
-                            </th>
-                            <th>
-                                Ação
-                            </th>
-                        </tr>
+                            <tr>
+                                <th>
+                                    Nome
+                                </th>
+                                <th>
+                                    Descrição
+                                </th>
+                                <th>
+                                    Download
+                                </th>
+                                <th>
+                                    Ação
+                                </th>
+                            </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="f in files">
-                            <td>
-                                <a ng-href="/project/{{project_id}}/file/{{f.id}}/download" target="_blank">{{f.name}}</a>
-                            </td>
-                            <td>
-                                {{f.description | limitTo:50}}...
-                            </td>
-                            <td>
-                                <a ng-href="#/projects/{{project_id}}/files/{{f.id}}/edit" class="btn btn-success">Editar</a>
-                                <a ng-href="#/projects/{{project_id}}/files/{{f.id}}/remove" class="btn btn-danger">Excluir</a>
-                            </td>
-                        </tr>
+                            <tr ng-repeat="f in files">
+                                <td>
+                                    {{f.name}}
+                                </td>
+                                <td>
+                                    {{f.description | limitTo:50}}...
+                                </td>
+                                <td>
+                                    <project-file-download id-file="{{f.id}}" id-project="{{project_id}}">
+                                    </project-file-download>
+                                </td>
+                                <td>
+                                    <a ng-href="#/projects/{{project_id}}/files/{{f.id}}/edit" class="btn btn-success">Editar</a>
+                                    <a ng-href="#/projects/{{project_id}}/files/{{f.id}}/remove" class="btn btn-danger">Excluir</a>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

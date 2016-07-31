@@ -106,7 +106,14 @@ class ProjectFileController extends Controller
 
     public function showFile($project_id, $id)
     {
-        return response()->download($this->service->getFilePath($id));
+        $filePath = $this->service->getFilePath($id);
+        $fileContent = file_get_contents($filePath);
+        $file64 = base64_encode($fileContent);
+        return [
+            'file' => $file64,
+            'size' => filesize($filePath),
+            'name' => $this->service->getFileName($id)
+        ];
     }
 
     /**

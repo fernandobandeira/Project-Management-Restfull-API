@@ -7,7 +7,10 @@ angular.module('app.services')
         }, {
             update: {
                 method: 'PUT'
+            },
+            download: {
+                url: url + '/download',
+                method: 'GET'
             }
-            
         });
     }])
