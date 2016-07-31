@@ -29,7 +29,8 @@
                         ng-class="{'has-error': !form.file.$valid && form.file.$touched, 'has-success': form.file.$valid && form.file.$touched}">
                             <label class="col-md-4 control-label">Arquivo</label>
                             <div class="col-md-6">
-                            <div class="btn btn-info" ngf-select ng-model="file.file" name="file">Selecione um arquivo</div>
+                                <div class="btn btn-info" ngf-select ng-model="file.file" name="file">Selecione um arquivo</div>
+                                {{file.file.name}}
                                 <div ng-messages="form.file.$error" class="help-block" ng-show="form.file.$touched">
                                     <div ng-message="required">Campo obrigatório</div>
                                 </div>
