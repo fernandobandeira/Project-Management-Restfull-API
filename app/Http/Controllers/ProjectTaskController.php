@@ -23,8 +23,6 @@ class ProjectTaskController extends Controller
     {
         $this->repository = $repository;
         $this->service = $service;
-
-        $this->middleware('CheckProjectPermissions');
     }
 
     /**

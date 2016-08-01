@@ -27,17 +27,25 @@ class ProjectController extends Controller
         $this->service = $service;
 
         $this->middleware(
-            'CheckProjectPermissions', ['except' => [
-            'index',
-            'store',
-            'destroy',
-            ]]
+            'CheckProjectPermissions',
+            [
+                'except' => [
+                    'index',
+                    'store',
+                    'destroy',
+                    'update'
+                ]
+            ]
         );
 
         $this->middleware(
-            'CheckProjectOwner', ['only' => [
-            'destroy',
-            ]]
+            'CheckProjectOwner',
+            [
+                'only' => [
+                    'destroy',
+                    'update'
+                ]
+            ]
         );
     }
 

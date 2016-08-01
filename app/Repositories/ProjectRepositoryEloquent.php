@@ -63,6 +63,7 @@ class ProjectRepositoryEloquent extends BaseRepository implements ProjectReposit
         $project = $this
             ->skipPresenter()
             ->findWhere(['id' => $project_id, 'owner_id' => $owner_id]);
+
         if (count($project)) {
             return true;
         }
@@ -74,7 +75,8 @@ class ProjectRepositoryEloquent extends BaseRepository implements ProjectReposit
     {
         $project = $this
             ->whereHas(
-                'members', function ($query) use ($member_id) {
+                'members',
+                function ($query) use ($member_id) {
                     return $query->where('id', $member_id);
                 }
             )
