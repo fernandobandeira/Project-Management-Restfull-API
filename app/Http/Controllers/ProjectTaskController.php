@@ -51,6 +51,7 @@ class ProjectTaskController extends Controller
         try {
             $data = $request->all();
             $data['project_id'] = $project_id;
+
             return $this->service->create($data);
         } catch (\Exception $e) {
             return ['error' => true, 'message' => 'Ocorreu algum erro ao salvar a tarefa do projeto.'];
@@ -91,6 +92,7 @@ class ProjectTaskController extends Controller
         try {
             $data = $request->all();
             $data['project_id'] = $project_id;
+
             return $this->service->update($data, $id);
         } catch (ModelNotFoundException $e) {
             return ['error' => true, 'message' => 'Tarefa do projeto não encontrada.'];

@@ -51,6 +51,7 @@ class ProjectNoteController extends Controller
         try {
             $data = $request->all();
             $data['project_id'] = $project_id;
+
             return $this->service->create($data);
         } catch (\Exception $e) {
             return ['error' => true, 'message' => 'Ocorreu algum erro ao salvar a nota do projeto.'];
@@ -90,6 +91,7 @@ class ProjectNoteController extends Controller
         try {
             $data = $request->all();
             $data['project_id'] = $project_id;
+
             return $this->service->update($data, $id);
         } catch (ModelNotFoundException $e) {
             return ['error' => true, 'message' => 'Nota do projeto não encontrada.'];
