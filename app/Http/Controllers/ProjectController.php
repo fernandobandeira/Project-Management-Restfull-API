@@ -33,8 +33,8 @@ class ProjectController extends Controller
                     'index',
                     'store',
                     'destroy',
-                    'update'
-                ]
+                    'update',
+                ],
             ]
         );
 
@@ -43,8 +43,8 @@ class ProjectController extends Controller
             [
                 'only' => [
                     'destroy',
-                    'update'
-                ]
+                    'update',
+                ],
             ]
         );
     }

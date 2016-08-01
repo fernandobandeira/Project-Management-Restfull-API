@@ -48,7 +48,7 @@ class ProjectFileController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param int $projectId
+     * @param int                      $projectId
      *
      * @return \Illuminate\Http\Response
      */
@@ -116,6 +116,7 @@ class ProjectFileController extends Controller
         try {
             $data = $request->all();
             $data['project_id'] = $project_id;
+
             return $this->service->update($data, $id);
         } catch (ModelNotFoundException $e) {
             return ['error' => true, 'message' => 'Arquivo do projeto não encontrado.'];

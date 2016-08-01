@@ -44,7 +44,7 @@ Route::group(
                         Route::get('/project/{project}/file/{file}/download', 'ProjectFileController@showFile')->name('project.download');
                     }
                 );
-                
+
                 Route::get('/user/authenticated', 'UserController@authenticated')->name('user.authenticated');
             }
         );
