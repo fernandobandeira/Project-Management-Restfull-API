@@ -64,10 +64,11 @@ class ProjectFileController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
+     * @param int $projectId
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $project_id)
     {
         try {
             $file = $request->file('file');
@@ -76,7 +77,7 @@ class ProjectFileController extends Controller
             $data['name'] = $request->name;
             $data['extension'] = $extension;
             $data['description'] = $request->description;
-            $data['project_id'] = $request->project_id;
+            $data['project_id'] = $project_id;
             $data['file'] = $file;
 
             return $this->service->create($data);
@@ -88,7 +89,7 @@ class ProjectFileController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param int $projectId
+     * @param int $project_id
      * @param int $id
      *
      * @return \Illuminate\Http\Response
@@ -129,7 +130,9 @@ class ProjectFileController extends Controller
     public function update(Request $request, $project_id, $id)
     {
         try {
-            return $this->service->update($request->all(), $id);
+            $data = $request->all();
+            $data['project_id'] = $project_id;
+            return $this->service->update($data, $id);
         } catch (ModelNotFoundException $e) {
             return ['error' => true, 'message' => 'Arquivo do projeto não encontrado.'];
         } catch (\Exception $e) {

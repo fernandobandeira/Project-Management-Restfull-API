@@ -15,8 +15,7 @@ angular.module('app.controllers')
                     data: {
                         file: $scope.file.file, 
                         name: $scope.file.name,
-                        description: $scope.file.description,
-                        project_id: $routeParams.id
+                        description: $scope.file.description
                     }
                 }).then(function (resp) {
                     $location.path('/projects/' + $routeParams.id + '/files');

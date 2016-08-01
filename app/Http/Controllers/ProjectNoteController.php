@@ -46,10 +46,12 @@ class ProjectNoteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $project_id)
     {
         try {
-            return $this->service->create($request->all());
+            $data = $request->all();
+            $data['project_id'] = $project_id;
+            return $this->service->create($data);
         } catch (\Exception $e) {
             return ['error' => true, 'message' => 'Ocorreu algum erro ao salvar a nota do projeto.'];
         }
@@ -86,7 +88,9 @@ class ProjectNoteController extends Controller
     public function update(Request $request, $project_id, $id)
     {
         try {
-            return $this->service->update($request->all(), $id);
+            $data = $request->all();
+            $data['project_id'] = $project_id;
+            return $this->service->update($data, $id);
         } catch (ModelNotFoundException $e) {
             return ['error' => true, 'message' => 'Nota do projeto não encontrada.'];
         } catch (\Exception $e) {

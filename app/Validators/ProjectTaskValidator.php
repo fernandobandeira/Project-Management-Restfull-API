@@ -7,7 +7,6 @@ use Prettus\Validator\LaravelValidator;
 class ProjectTaskValidator extends LaravelValidator
 {
     protected $rules = [
-        'project_id' => 'required|exists:projects,id',
         'title'      => 'required',
         'note'       => 'required',
     ];
