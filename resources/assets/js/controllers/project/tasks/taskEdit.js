@@ -1,16 +1,43 @@
 angular.module('app.controllers')
-    .controller('ProjectTasksEditController',
-        ['$scope', 'ProjectNote', '$routeParams', '$location',
-            function ($scope, ProjectNote, $routeParams, $location) {
-                $scope.note = new ProjectNote.get({id: $routeParams.id, idNote: $routeParams.idNote});
+    .controller('ProjectTasksEditController', [
+        '$scope', '$routeParams', '$location','appConfig','ProjectTask',
+        function($scope,$routeParams,$location,appConfig,ProjectTask){
 
-                $scope.save = function () {
-                    if ($scope.form.$valid) {
-                        ProjectNote.update(
-                            {id: $routeParams.id,idNote: $scope.note.id},
-                            $scope.note, function () {
-                            $location.path('/projects/' + $routeParams.id + '/notes');
-                        });
-                    }
+            $scope.task = new ProjectTask.get({
+                id: $routeParams.id,
+                idTask: $routeParams.idTask
+            });
+
+            $scope.status = appConfig.projectTask.status;
+
+            $scope.start_date = {
+                status: {
+                    opened: false
                 }
-            }]);
+            };
+
+            $scope.due_date = {
+                status: {
+                    opened: false
+                }
+            };
+
+            $scope.openStartDatePicker = function($event){
+                $scope.start_date.status.opened = true;
+            };
+
+            $scope.openDueDatePicker = function($event){
+                $scope.due_date.status.opened = true;
+            };
+
+            $scope.save = function(){
+                if($scope.form.$valid) {
+                    ProjectTask.update({
+                        id: $routeParams.id,
+                        idTask: $scope.task.id
+                    },$scope.task, function () {
+                        $location.path('/projects/'+$routeParams.id+'/tasks');
+                    })
+                }
+            }
+    }]);

@@ -2,12 +2,14 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Exclusão de nota</div>
+                <div class="panel-heading">Exclusão de tarefa</div>
                 <div class="panel-body">
-                    <p>Deseja excluir realmente esta nota?</p>
+                    <p>Deseja excluir realmente esta tarefa?</p>
                     <ul>
-                        <li><strong>Nome:</strong>{{note.title}}</li>
-                        <li><strong>Descrição:</strong>{{note.note}}</li>
+                        <li><strong>Nome:</strong> {{task.name}}</li>
+                        <li><strong>Data de Início:</strong> {{task.start_date | dateBr}}</li>
+                        <li><strong>Data de Entrega:</strong> {{task.due_date | dateBr}}</li>
+                        <li><strong>Status:</strong> {{task.status}}</li>
                     </ul>
                     <div class="form-group">
                         <div class="col-md-6 col-md-offset-4">

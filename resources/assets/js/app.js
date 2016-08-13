@@ -153,11 +153,11 @@ app.config([
                 templateUrl: 'build/views/project/tasks/new.html',
                 controller: 'ProjectTasksNewController'
             })
-            .when('/projects/:id/tasks/:idNote/edit', {
+            .when('/projects/:id/tasks/:idTask/edit', {
                 templateUrl: 'build/views/project/tasks/edit.html',
                 controller: 'ProjectTasksEditController'
             })
-            .when('/projects/:id/tasks/:idNote/remove', {
+            .when('/projects/:id/tasks/:idTask/remove', {
                 templateUrl: 'build/views/project/tasks/remove.html',
                 controller: 'ProjectTasksRemoveController'
             })

@@ -2,29 +2,75 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Edição de notas</div>
+                <div class="panel-heading">Cadastro de tarefas</div>
                 <div class="panel-body">
+
                     <form class="form-horizontal" name="form" role="form" method="POST" ng-submit="save()">
-                        <div class="form-group"
-                             ng-class="{'has-error': !form.title.$valid && form.title.$touched, 'has-success': form.title.$valid && form.title.$touched}">
+                        <div class="form-group" ng-class="{'has-error': !form.name.$valid && form.name.$touched, 'has-success': form.name.$valid && form.name.$touched}">
                             <label class="col-md-4 control-label">Nome</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="title" ng-model="note.title" required>
-                                <div ng-messages="form.title.$error" class="help-block" ng-show="form.title.$touched">
+                                <input type="text" class="form-control" name="name" ng-model="task.name" required>
+                                <div ng-messages="form.name.$error" class="help-block" ng-show="form.name.$touched">
                                     <div ng-message="required">Campo obrigatório</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group"
-                             ng-class="{'has-error': !form.note.$valid && form.note.$touched, 'has-success': form.note.$valid && form.note.$touched}">
-                            <label class="col-md-4 control-label">Descrição</label>
+
+                        <div class="form-group" ng-class="{'has-error': !form.start_date.$valid && form.start_date.$touched, 'has-success': form.start_date.$valid && form.start_date.$touched}">
+                            <label class="col-md-4 control-label">Data de Início</label>
                             <div class="col-md-6">
-                                <textarea class="form-control" name="note" ng-model="note.note" required></textarea>
-                                <div ng-messages="form.note.$error" class="help-block" ng-show="form.note.$touched">
+                                <p class="input-group">
+                                    <input type="text" class="form-control" name="start_date"
+                                           uib-datepicker-popup="dd/MM/yyyy"
+                                           ng-model="task.start_date"
+                                           is-open="start_date.status.opened" close-text="Fechar"/>
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="openStartDatePicker($event)">
+                                            <i class="glyphicon glyphicon-calendar"></i>
+                                        </button>
+                                    </span>
+                                </p>
+
+                               <div ng-messages="form.start_date.$error" class="help-block" ng-show="form.start_date.$touched">
+                                    <div ng-message="date">Data Inválida</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-class="{'has-error': !form.due_date.$valid && form.due_date.$touched, 'has-success': form.due_date.$valid && form.due_date.$touched}">
+                            <label class="col-md-4 control-label">Data de Entrega</label>
+                            <div class="col-md-6">
+                                <p class="input-group">
+                                    <input type="text" class="form-control" name="due_date"
+                                           uib-datepicker-popup="dd/MM/yyyy"
+                                           ng-model="task.due_date"
+                                           is-open="due_date.status.opened" close-text="Fechar"/>
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="openDueDatePicker($event)">
+                                            <i class="glyphicon glyphicon-calendar"></i>
+                                        </button>
+                                    </span>
+                                </p>
+
+                               <div ng-messages="form.due_date.$error" class="help-block" ng-show="form.due_date.$touched">
+                                    <div ng-message="date">Data Inválida</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-class="{'has-error': !form.status.$valid && form.status.$touched, 'has-success': form.status.$valid && form.status.$touched}">
+                            <label class="col-md-4 control-label">Status</label>
+                            <div class="col-md-6">
+                                <select class="form-control" name="status" ng-model="task.status"
+                                        ng-options="o.value as o.label for o in status" required>
+                                    <option value=""><-- Selecione o status --></option>
+                                </select>
+                                <div ng-messages="form.status.$error" class="help-block" ng-show="form.status.$touched">
                                     <div ng-message="required">Campo obrigatório</div>
                                 </div>
                             </div>
                         </div>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">Salvar</button>
