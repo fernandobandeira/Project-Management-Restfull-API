@@ -2,9 +2,9 @@
 
 namespace CodeProject\Transformers;
 
+use Authorizer;
 use CodeProject\Entities\Project;
 use League\Fractal\TransformerAbstract;
-use Authorizer;
 
 class ProjectTransformer extends TransformerAbstract
 {
@@ -21,7 +21,7 @@ class ProjectTransformer extends TransformerAbstract
             'progress'    => (int) $project->progress,
             'status'      => $project->status,
             'due_date'    => $project->due_date,
-            'is_member'   => $project->owner_id != Authorizer::getResourceOwnerId()
+            'is_member'   => $project->owner_id != Authorizer::getResourceOwnerId(),
         ];
     }
 
