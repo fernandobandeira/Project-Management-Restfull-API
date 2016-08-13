@@ -91,6 +91,11 @@
     <script src="{{ asset('build/js/controllers/project/notes/noteEdit.js') }}"></script>
     <script src="{{ asset('build/js/controllers/project/notes/noteRemove.js') }}"></script>
 
+    <script src="{{ asset('build/js/controllers/project/tasks/taskList.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/project/tasks/taskNew.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/project/tasks/taskEdit.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/project/tasks/taskRemove.js') }}"></script>
+
     <script src="{{ asset('build/js/controllers/project/files/fileList.js') }}"></script>
     <script src="{{ asset('build/js/controllers/project/files/fileNew.js') }}"></script>
     <script src="{{ asset('build/js/controllers/project/files/fileShow.js') }}"></script>
@@ -108,6 +113,7 @@
     <script src="{{ asset('build/js/services/client.js') }}"></script>
     <script src="{{ asset('build/js/services/project.js') }}"></script>
     <script src="{{ asset('build/js/services/projectNote.js') }}"></script>
+    <script src="{{ asset('build/js/services/projectTask.js') }}"></script>
     <script src="{{ asset('build/js/services/projectFile.js') }}"></script>
     <script src="{{ asset('build/js/services/user.js') }}"></script>
 @else

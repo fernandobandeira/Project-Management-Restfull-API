@@ -3,7 +3,6 @@ angular.module('app.controllers')
         ['$scope', 'ProjectFile', '$routeParams', '$location',
             function ($scope, ProjectFile, $routeParams, $location) {
                 $scope.file = new ProjectFile.get({id: $routeParams.id, idFile: $routeParams.idFile});
-                $scope.project_id = $routeParams.id;
                 
                 $scope.save = function () {
                     if ($scope.form.$valid) {

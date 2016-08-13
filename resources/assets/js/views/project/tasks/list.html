@@ -1,0 +1,65 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Listagem de tarefas
+                    <div class="pull-right col-md-10">
+                        <form class="form-inline" name="form" role="form" method="POST" ng-submit="save()">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Nome</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="name" ng-model="task.name" requierd>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-6 col-md-offset-4">
+                                    <button type="submit" class="btn btn-primary">Salvar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="panel-body">
+                    <a ng-href="#/projects/{{project_id}}/tasks/new" class="btn btn-info">Adicionar Nova</a>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>
+                                Nome
+                            </th>
+                            <th>
+                                Data de Início
+                            </th>
+                            <th>
+                                Data de Entrega
+                            </th>
+                            <th>
+                                Ação
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="t in tasks">
+                            <td>
+                                {{t.name}}
+                            </td>
+                            <td>
+                                {{t.start_date | dateBr}}...
+                            </td>
+                            <td>
+                                {{t.due_date | dateBr}}...
+                            </td>
+                            <td>
+                                <a ng-href="#/projects/{{project_id}}/notes/{{t.id}}/edit" class="btn btn-success">Editar</a>
+                                <a ng-href="#/projects/{{project_id}}/notes/{{t.id}}/remove" class="btn btn-danger">Excluir</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

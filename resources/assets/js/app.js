@@ -23,6 +23,15 @@ app.provider('appConfig', ['$httpParamSerializerProvider', function($httpParamSe
                 label: 'Concluído'
             }]
         },
+        projectTask: {
+            status: [{
+                value: 1,
+                label: 'Incompleta'
+            }, {
+                value: 2,
+                label: 'Completa'
+            }]
+        },
         urls: {
             projectFile: '/project/{{id}}/file/{{idFile}}'
         },
@@ -135,6 +144,22 @@ app.config([
             .when('/projects/:id/notes/:idNote/remove', {
                 templateUrl: 'build/views/project/notes/remove.html',
                 controller: 'ProjectNotesRemoveController'
+            })
+            .when('/projects/:id/tasks', {
+                templateUrl: 'build/views/project/tasks/list.html',
+                controller: 'ProjectTasksListController'
+            })
+            .when('/projects/:id/tasks/new', {
+                templateUrl: 'build/views/project/tasks/new.html',
+                controller: 'ProjectTasksNewController'
+            })
+            .when('/projects/:id/tasks/:idNote/edit', {
+                templateUrl: 'build/views/project/tasks/edit.html',
+                controller: 'ProjectTasksEditController'
+            })
+            .when('/projects/:id/tasks/:idNote/remove', {
+                templateUrl: 'build/views/project/tasks/remove.html',
+                controller: 'ProjectTasksRemoveController'
             })
             .when('/projects/:id/files', {
                 templateUrl: 'build/views/project/files/list.html',
