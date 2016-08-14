@@ -5,7 +5,7 @@ namespace CodeProject\Transformers;
 use CodeProject\Entities\User;
 use League\Fractal\TransformerAbstract;
 
-class ProjectMemberTransformer extends TransformerAbstract
+class MemberTransformer extends TransformerAbstract
 {
     public function transform(User $member)
     {
