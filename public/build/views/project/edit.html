@@ -24,7 +24,7 @@
                             <label class="col-md-4 control-label">Cliente</label>
                             <div class="col-md-6">
                                 <input type="text" class="form-control" name="client_id" ng-model="clientSelected" required uib-typeahead="client as client.name for client in getClients($viewValue)|limitTo:3" typeahead-input-formatter="formatName($model)"
-                                    typeahead-on-select="selectClient($item)" typeahead-editable="false">
+                                    typeahead-on-select="selectClient($item)" typeahead-editable="false" autocomplete="off">
                                 <div ng-messages="form.client_id.$error" class="help-block" ng-show="form.client_id.$touched">
                                     <div ng-message="required">Campo obrigatório</div>
                                     <div ng-message="editable">Selecione um cliente válido</div>

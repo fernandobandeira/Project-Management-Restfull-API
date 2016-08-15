@@ -33,12 +33,12 @@ Route::group(
             function () {
                 Route::resource('client', 'ClientController', ['except' => ['create', 'edit']]);
                 Route::resource('project', 'ProjectController', ['except' => ['create', 'edit']]);
+                Route::resource('project.member', 'ProjectMemberController', ['except' => ['create', 'edit', 'update']]);
 
                 Route::group(
                     ['middleware' => 'CheckProjectPermissions'],
                     function () {
                         Route::get('/project/{project}/members', 'ProjectController@members')->name('project.member');
-                        Route::resource('project.member', 'ProjectMemberController', ['except' => ['create', 'edit', 'update']]);
                         Route::resource('project.note', 'ProjectNoteController', ['except' => ['create', 'edit']]);
                         Route::resource('project.task', 'ProjectTaskController', ['except' => ['create', 'edit']]);
                         Route::resource('project.file', 'ProjectFileController', ['except' => ['create', 'edit']]);
@@ -47,6 +47,8 @@ Route::group(
                 );
 
                 Route::get('/user/authenticated', 'UserController@authenticated')->name('user.authenticated');
+
+                Route::resource('user', 'UserController', ['only' => 'index']);
             }
         );
     }

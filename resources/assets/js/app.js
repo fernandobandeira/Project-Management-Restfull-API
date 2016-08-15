@@ -180,6 +180,14 @@ app.config([
             .when('/projects/:id/files/:idFile/remove', {
                 templateUrl: 'build/views/project/files/remove.html',
                 controller: 'ProjectFilesRemoveController'
+            })
+            .when('/projects/:id/members/', {
+                templateUrl: 'build/views/project/members/list.html',
+                controller: 'ProjectMembersListController'
+            })
+            .when('/projects/:id/members/:idProjectMember/remove', {
+                templateUrl: 'build/views/project/members/remove.html',
+                controller: 'ProjectMembersRemoveController'
             });
 
         OAuthProvider.configure({

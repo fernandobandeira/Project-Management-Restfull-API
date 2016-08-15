@@ -23,4 +23,14 @@ class UserController extends Controller
 
         return $this->repository->find($id);
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return $this->repository->all();
+    }
 }
