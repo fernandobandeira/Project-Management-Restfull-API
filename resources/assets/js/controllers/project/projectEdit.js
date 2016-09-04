@@ -8,6 +8,7 @@ angular.module('app.controllers')
                 $scope.project.client_id = data.client.data.id;
                 $scope.clientSelected = data.client.data;
             });
+
             $scope.status = appConfig.project.status;
 
             $scope.due_date = {
