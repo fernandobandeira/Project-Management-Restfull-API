@@ -7,60 +7,61 @@
                     <a ng-href="#/projects/new" class="btn btn-info">Adicionar Novo</a>
                     <table class="table table-striped">
                         <thead>
-                        <tr>
-                            <th>
-                                Nome
-                            </th>
-                            <th>
-                                Cliente
-                            </th>
-                            <th>
-                                Progresso
-                            </th>
-                            <th>
-                                Status
-                            </th>
-                            <th>
-                                Data Estimada
-                            </th>
-                            <th>
-                                Relacionados
-                            </th>
-                            <th>
-                                Ação
-                            </th>
-                        </tr>
+                            <tr>
+                                <th>
+                                    Nome
+                                </th>
+                                <th>
+                                    Cliente
+                                </th>
+                                <th>
+                                    Progresso
+                                </th>
+                                <th>
+                                    Status
+                                </th>
+                                <th>
+                                    Data Estimada
+                                </th>
+                                <th>
+                                    Relacionados
+                                </th>
+                                <th>
+                                    Ação
+                                </th>
+                            </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="p in projects">
-                            <td>
-                                <a ng-href="#/projects/{{p.id}}">{{p.name}}</a>
-                            </td>
-                            <td>
-                                {{p.client.data.name}}
-                            </td>
-                            <td>
-                                {{p.progress}}
-                            </td>
-                            <td>
-                                {{p.status}}
-                            </td>
-                            <td>
-                                {{p.due_date | dateBr}}
-                            </td>
-                            <td>
-                                <a ng-href="#/projects/{{p.id}}/notes">Notas</a> | 
-                                <a ng-href="#/projects/{{p.id}}/tasks">Tarefas</a> | 
-                                <a ng-href="#/projects/{{p.id}}/members">Membros</a> | 
-                                <a ng-href="#/projects/{{p.id}}/files">Arquivos</a>
-                            </td>
-                            <td>
-                                <a ng-href="#/projects/{{p.id}}/edit" class="btn btn-success">Editar</a>
-                                <a ng-href="#/projects/{{p.id}}/remove" class="btn btn-danger">Excluir</a>
-                            </td>
-                        </tr>
+                            <tr dir-paginate="p in projects | itemsPerPage: projectsPerPage" total-items="totalProjects" current-page="pagination.current">
+                                <td>
+                                    <a ng-href="#/projects/{{p.id}}">{{p.name}}</a>
+                                </td>
+                                <td>
+                                    {{p.client.data.name}}
+                                </td>
+                                <td>
+                                    {{p.progress}}
+                                </td>
+                                <td>
+                                    {{p.status}}
+                                </td>
+                                <td>
+                                    {{p.due_date | dateBr}}
+                                </td>
+                                <td>
+                                    <a ng-href="#/projects/{{p.id}}/notes">Notas</a> |
+                                    <a ng-href="#/projects/{{p.id}}/tasks">Tarefas</a> |
+                                    <a ng-href="#/projects/{{p.id}}/members">Membros</a> |
+                                    <a ng-href="#/projects/{{p.id}}/files">Arquivos</a>
+                                </td>
+                                <td>
+                                    <a ng-href="#/projects/{{p.id}}/edit" class="btn btn-success">Editar</a>
+                                    <a ng-href="#/projects/{{p.id}}/remove" class="btn btn-danger">Excluir</a>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
+                    <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
                 </div>
             </div>
         </div>

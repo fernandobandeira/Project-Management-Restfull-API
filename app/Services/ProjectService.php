@@ -60,6 +60,6 @@ class ProjectService
                     ->where('project_members.member_id', '=', $user_id)
                     ->orWhere('owner_id', '=', $user_id);
             }
-        )->all();
+        )->paginate();
     }
 }

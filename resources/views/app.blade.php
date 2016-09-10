@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Laravel</title>
+    <title>Codeproject</title>
 
     @if(Config::get('app.debug'))
         <link href="{{ asset('build/css/app.css') }}" rel="stylesheet" />
@@ -26,30 +26,8 @@
     <![endif]-->
 </head>
 <body>
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle Navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Laravel</a>
-        </div>
 
-        <div class="collapse navbar-collapse" id="navbar">
-            <ul class="nav navbar-nav">
-                <li><a href="{{ url('/#/projects') }}">Projetos</a></li>
-                <li><a href="{{ url('/#/clients') }}">Clientes</a></li>
-            </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ url('/#/login') }}">Login</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<load-template url="build/views/templates/menu.html"></load-template>
 
 <div ng-view></div>
 
@@ -67,6 +45,7 @@
     <script src="{{ asset('build/js/vendor/angular-oauth2.min.js') }}"></script>
     <script src="{{ asset('build/js/vendor/ng-file-upload.min.js') }}"></script>
     <script src="{{ asset('build/js/vendor/http-auth-interceptor.js') }}"></script>
+    <script src="{{ asset('build/js/vendor/dirPagination.js') }}"></script>
 
     <script src="{{ asset('build/js/app.js') }}"></script>
 
@@ -74,6 +53,7 @@
     <script src="{{ asset('build/js/controllers/login.js') }}"></script>
     <script src="{{ asset('build/js/controllers/loginModal.js') }}"></script>
     <script src="{{ asset('build/js/controllers/home.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/menu.js') }}"></script>
 
     <script src="{{ asset('build/js/controllers/client/clientList.js') }}"></script>
     <script src="{{ asset('build/js/controllers/client/clientNew.js') }}"></script>
@@ -110,6 +90,7 @@
     <!-- Directives -->
     <script src="{{ asset('build/js/directives/projectFileDownload.js') }}"></script>
     <script src="{{ asset('build/js/directives/loginForm.js') }}"></script>
+    <script src="{{ asset('build/js/directives/loadTemplate.js') }}"></script>
 
     <!-- Filters -->
     <script src="{{ asset('build/js/filters/dateBr.js') }}"></script>
