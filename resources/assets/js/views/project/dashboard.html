@@ -10,7 +10,7 @@
                                     Projetos
 
                                     <div class="btn-group pull-right">
-                                        <a href="" class="btn btn-default btn-sm">
+                                        <a ng-href="#/project/new" class="btn btn-default btn-sm">
                                             <i class="fa fa-plus"></i>
                                         </a>
                                     </div>
@@ -35,43 +35,27 @@
                                 {{ project.name }} <small>({{ project.progress }}%)</small>
 
                                 <div class="btn-group pull-right">
-                                    <a href="" class="btn btn-default btn-xs" title="Editar">
+                                    <a ng-href="#/project/{{ project.id }}/edit" class="btn btn-default btn-xs" title="Editar">
                                         <i class="fa fa-pencil"></i>
                                     </a>
-                                    <a href="" class="btn btn-danger btn-xs" title="Apagar">
+                                    <a ng-href="#/project/{{ project.id }}/remove" class="btn btn-danger btn-xs" title="Apagar">
                                         <i class="fa fa-trash"></i>
                                     </a>
                                 </div>
                             </h4>
                         </div>
                         <div class="boxed-manager-main-body">
-                            <div class="btn-group" role="tablist">
-                                <a href="#detalhes"
-                                   aria-controls="detalhes"
-                                   role="tab"
-                                   data-toggle="tab"
-                                   class="btn btn-default active">
+                            <div class="btn-group" role="tablist" tab-project>
+                                <a href="" aria-controls="detalhes" role="tab" data-toggle="tab" class="btn btn-default active">
                                     Detalhes
                                 </a>
-                                <a href="#tarefas"
-                                   aria-controls="tarefas"
-                                   role="tab"
-                                   data-toggle="tab"
-                                   class="btn btn-default">
+                                <a href="" aria-controls="tarefas" role="tab" data-toggle="tab" class="btn btn-default">
                                     Tarefas
                                 </a>
-                                <a href="#arquivos"
-                                   aria-controls="arquivos"
-                                   role="tab"
-                                   data-toggle="tab"
-                                   class="btn btn-default">
+                                <a href="" aria-controls="arquivos" role="tab" data-toggle="tab" class="btn btn-default">
                                     Arquivos
                                 </a>
-                                <a href="#anotacoes"
-                                   aria-controls="anotacoes"
-                                   role="tab"
-                                   data-toggle="tab"
-                                   class="btn btn-default">
+                                <a href="" aria-controls="anotacoes" role="tab" data-toggle="tab" class="btn btn-default">
                                     Anotações
                                 </a>
                             </div>
@@ -89,20 +73,17 @@
                                         <ul class="task-list-body">
                                             <li>
                                                 <label>
-                                                    <input type="checkbox" name="" id=""/>
-                                                    Call Joan to discuss existing requirements
+                                                    <input type="checkbox" name="" id="" /> Call Joan to discuss existing requirements
                                                 </label>
                                             </li>
                                             <li>
                                                 <label>
-                                                    <input type="checkbox" name="" id=""/>
-                                                    Call Joan to discuss existing requirements
+                                                    <input type="checkbox" name="" id="" /> Call Joan to discuss existing requirements
                                                 </label>
                                             </li>
                                             <li>
                                                 <label>
-                                                    <input type="checkbox" name="" id=""/>
-                                                    Call Joan to discuss existing requirements
+                                                    <input type="checkbox" name="" id="" /> Call Joan to discuss existing requirements
                                                 </label>
                                             </li>
                                         </ul>
@@ -111,14 +92,12 @@
                                         <ul class="task-list-body">
                                             <li>
                                                 <label>
-                                                    <input type="checkbox" name="" id=""/>
-                                                    Call Joan to discuss existing requirements
+                                                    <input type="checkbox" name="" id="" /> Call Joan to discuss existing requirements
                                                 </label>
                                             </li>
                                             <li>
                                                 <label>
-                                                    <input type="checkbox" name="" id=""/>
-                                                    Call Joan to discuss existing requirements
+                                                    <input type="checkbox" name="" id="" /> Call Joan to discuss existing requirements
                                                 </label>
                                             </li>
                                         </ul>
@@ -127,8 +106,7 @@
                                         <ul class="task-list-body">
                                             <li>
                                                 <label>
-                                                    <input type="checkbox" name="" id=""/>
-                                                    Call Joan to discuss existing requirements
+                                                    <input type="checkbox" name="" id="" /> Call Joan to discuss existing requirements
                                                 </label>
                                             </li>
                                         </ul>
@@ -184,7 +162,7 @@
                                     <div class="notes-list">
                                         <div class="notes-list-item note-type-status-changed">
                                             <a href="" class="avatar avatar-xs">
-                                                <img src="build/images/avatar.png" alt=""/>
+                                                <img src="build/images/avatar.png" alt="" />
                                             </a>
                                             <div class="notes-list-body">
                                                 <h6>
@@ -195,10 +173,11 @@
                                                     The status on <strong>Sample Project</strong> change to <strong>Overdue</strong>
                                                 </p>
                                             </div>
-                                        </div> <!-- /notes-list-item -->
+                                        </div>
+                                        <!-- /notes-list-item -->
                                         <div class="notes-list-item note-type-task-completed">
                                             <a href="" class="avatar avatar-xs">
-                                                <img src="build/images/avatar.png" alt=""/>
+                                                <img src="build/images/avatar.png" alt="" />
                                             </a>
                                             <div class="notes-list-body">
                                                 <h6>
@@ -206,14 +185,14 @@
                                                     <span class="time">2 years ago</span>
                                                 </h6>
                                                 <p class="notes-list-body-content">
-                                                    <input type="checkbox" name="" id="" disabled="disabled" checked="checked" />
-                                                    Design the new landing page
+                                                    <input type="checkbox" name="" id="" disabled="disabled" checked="checked" /> Design the new landing page
                                                 </p>
                                             </div>
-                                        </div> <!-- /notes-list-item -->
+                                        </div>
+                                        <!-- /notes-list-item -->
                                         <div class="notes-list-item note-type-attachement">
                                             <a href="" class="avatar avatar-xs">
-                                                <img src="build/images/avatar.png" alt=""/>
+                                                <img src="build/images/avatar.png" alt="" />
                                             </a>
                                             <div class="notes-list-body">
                                                 <h6>
@@ -226,10 +205,11 @@
                                                     </a>
                                                 </p>
                                             </div>
-                                        </div> <!-- /notes-list-item -->
+                                        </div>
+                                        <!-- /notes-list-item -->
                                         <div class="notes-list-item note-type-message">
                                             <a href="" class="avatar avatar-xs">
-                                                <img src="build/images/avatar.png" alt=""/>
+                                                <img src="build/images/avatar.png" alt="" />
                                             </a>
                                             <div class="notes-list-body">
                                                 <h6>
@@ -241,8 +221,10 @@
                                                     Hi. John asked me to look at the changes. Everythins looks greate!
                                                 </p>
                                             </div>
-                                        </div> <!-- /notes-list-item -->
-                                    </div> <!-- /notes-list -->
+                                        </div>
+                                        <!-- /notes-list-item -->
+                                    </div>
+                                    <!-- /notes-list -->
                                 </div>
                             </div>
                         </div>
@@ -283,9 +265,9 @@
                                 </li>
                                 <li class="text-center text-silver">{{ project.due_date | dateBr }}</li>
                                 <li class="list-styled-header text-upper text-center">
-                                    Tarefas (12)
+                                    Tarefas ({{ project.tasks_count }})
                                 </li>
-                                <li class="text-center text-silver">9 terefas em aberto</li>
+                                <li class="text-center text-silver">{{ project.tasks_opened }} terefas em aberto</li>
                             </ul>
                         </div>
                     </div>

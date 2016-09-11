@@ -15,13 +15,15 @@ class ProjectTransformer extends TransformerAbstract
     public function transform(Project $project)
     {
         return [
-            'id'          => $project->id,
-            'name'        => $project->name,
+            'id' => $project->id,
+            'name' => $project->name,
             'description' => $project->description,
-            'progress'    => (int) $project->progress,
-            'status'      => $project->status,
-            'due_date'    => $project->due_date,
-            'is_member'   => $project->owner_id != Authorizer::getResourceOwnerId(),
+            'progress' => (int) $project->progress,
+            'status' => $project->status,
+            'due_date' => $project->due_date,
+            'is_member' => $project->owner_id != Authorizer::getResourceOwnerId(),
+            'tasks_count' => $project->tasks->count(),
+            'tasks_opened' => $project->tasks()->where('status', 1)->count(),
         ];
     }
 

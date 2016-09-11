@@ -1395,6 +1395,10 @@ app.config([
                     }]
                 }
             })
+            .when('/', {
+                templateUrl: 'build/views/home.html',
+                controller: 'HomeController'
+            })
             .when('/home', {
                 templateUrl: 'build/views/home.html',
                 controller: 'HomeController'
@@ -1424,22 +1428,17 @@ app.config([
                 controller: 'ProjectDashboardController',
                 title: 'Projetos'
             })
-            .when('/projects/new', {
+            .when('/project/new', {
                 templateUrl: 'build/views/project/new.html',
                 controller: 'ProjectNewController',
                 title: 'Projetos'
             })
-            .when('/projects/:id', {
-                templateUrl: 'build/views/project/show.html',
-                controller: 'ProjectShowController',
-                title: 'Projetos'
-            })
-            .when('/projects/:id/edit', {
+            .when('/project/:id/edit', {
                 templateUrl: 'build/views/project/edit.html',
                 controller: 'ProjectEditController',
                 title: 'Projetos'
             })
-            .when('/projects/:id/remove', {
+            .when('/project/:id/remove', {
                 templateUrl: 'build/views/project/remove.html',
                 controller: 'ProjectRemoveController',
                 title: 'Projetos'
@@ -1649,12 +1648,6 @@ angular.module('app.controllers')
         $scope.user = $cookies.getObject('user');
     }]);
 
-angular.module('app.filters').filter('dateBr', ['$filter', function($filter) {
-    return function(input) {
-      return $filter('date')(input, 'dd/MM/yyyy');
-    }
-}]);
-
 angular.module('app.directives')
     .directive('loadTemplate', ['$compile', '$http', 'OAuth',
         function($compile, $http, OAuth) {
@@ -1760,6 +1753,29 @@ angular.module('app.directives')
             };
         }
     ])
+
+angular.module('app.directives')
+    .directive('tabProject', function() {
+        return {
+            restrict: 'A',
+            link: function(scope, element, attr) {
+                $(element).find('a').click(function() {
+                    var tabContent = $(element).parent().find('.tab-content'),
+                        a = $(this);
+                    $(element).find('.active').removeClass('active');
+                    tabContent.find('.active').removeClass('active');
+                    tabContent.find("[id=" + a.attr('aria-controls') + "]").addClass('active');
+                    a.addClass('active');
+                });
+            }
+        };
+    });
+
+angular.module('app.filters').filter('dateBr', ['$filter', function($filter) {
+    return function(input) {
+      return $filter('date')(input, 'dd/MM/yyyy');
+    }
+}]);
 
 angular.module('app.services')
     .service('Client', ['$resource', 'appConfig', function ($resource, appConfig) {

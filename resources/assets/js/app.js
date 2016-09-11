@@ -93,6 +93,10 @@ app.config([
                     }]
                 }
             })
+            .when('/', {
+                templateUrl: 'build/views/home.html',
+                controller: 'HomeController'
+            })
             .when('/home', {
                 templateUrl: 'build/views/home.html',
                 controller: 'HomeController'
@@ -122,22 +126,17 @@ app.config([
                 controller: 'ProjectDashboardController',
                 title: 'Projetos'
             })
-            .when('/projects/new', {
+            .when('/project/new', {
                 templateUrl: 'build/views/project/new.html',
                 controller: 'ProjectNewController',
                 title: 'Projetos'
             })
-            .when('/projects/:id', {
-                templateUrl: 'build/views/project/show.html',
-                controller: 'ProjectShowController',
-                title: 'Projetos'
-            })
-            .when('/projects/:id/edit', {
+            .when('/project/:id/edit', {
                 templateUrl: 'build/views/project/edit.html',
                 controller: 'ProjectEditController',
                 title: 'Projetos'
             })
-            .when('/projects/:id/remove', {
+            .when('/project/:id/remove', {
                 templateUrl: 'build/views/project/remove.html',
                 controller: 'ProjectRemoveController',
                 title: 'Projetos'
