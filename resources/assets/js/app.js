@@ -1,8 +1,7 @@
 var app = angular.module('app', ['ngRoute', 'angular-oauth2', 'app.controllers',
     'app.services', 'app.filters', 'app.directives', 'ui.bootstrap.typeahead',
     'ui.bootstrap.datepickerPopup', 'ui.bootstrap.tpls', 'ui.bootstrap.modal',
-    'ngFileUpload', 'http-auth-interceptor', 'angularUtils.directives.dirPagination',
-    'mgcrea.ngStrap.navbar', 'ui.bootstrap.dropdown'
+    'ngFileUpload', 'http-auth-interceptor', 'angularUtils.directives.dirPagination', 'ui.bootstrap.dropdown'
 ]);
 
 angular.module('app.controllers', ['ngMessages', 'angular-oauth2']);
@@ -99,44 +98,49 @@ app.config([
                 controller: 'HomeController'
             })
             .when('/clients', {
-                templateUrl: 'build/views/client/list.html',
-                controller: 'ClientListController'
+                templateUrl: 'build/views/client/dashboard.html',
+                controller: 'ClientDashboardController',
+                title: 'Clientes'
             })
-            .when('/clients/new', {
+            .when('/client/new', {
                 templateUrl: 'build/views/client/new.html',
-                controller: 'ClientNewController'
+                controller: 'ClientNewController',
+                title: 'Clientes'
             })
-            .when('/clients/:id', {
-                templateUrl: 'build/views/client/show.html',
-                controller: 'ClientShowController'
-            })
-            .when('/clients/:id/edit', {
+            .when('/client/:id/edit', {
                 templateUrl: 'build/views/client/edit.html',
-                controller: 'ClientEditController'
+                controller: 'ClientEditController',
+                title: 'Clientes'
             })
-            .when('/clients/:id/remove', {
+            .when('/client/:id/remove', {
                 templateUrl: 'build/views/client/remove.html',
-                controller: 'ClientRemoveController'
+                controller: 'ClientRemoveController',
+                title: 'Clientes'
             })
             .when('/projects', {
-                templateUrl: 'build/views/project/list.html',
-                controller: 'ProjectListController'
+                templateUrl: 'build/views/project/dashboard.html',
+                controller: 'ProjectDashboardController',
+                title: 'Projetos'
             })
             .when('/projects/new', {
                 templateUrl: 'build/views/project/new.html',
-                controller: 'ProjectNewController'
+                controller: 'ProjectNewController',
+                title: 'Projetos'
             })
             .when('/projects/:id', {
                 templateUrl: 'build/views/project/show.html',
-                controller: 'ProjectShowController'
+                controller: 'ProjectShowController',
+                title: 'Projetos'
             })
             .when('/projects/:id/edit', {
                 templateUrl: 'build/views/project/edit.html',
-                controller: 'ProjectEditController'
+                controller: 'ProjectEditController',
+                title: 'Projetos'
             })
             .when('/projects/:id/remove', {
                 templateUrl: 'build/views/project/remove.html',
-                controller: 'ProjectRemoveController'
+                controller: 'ProjectRemoveController',
+                title: 'Projetos'
             })
             .when('/projects/:id/notes', {
                 templateUrl: 'build/views/project/notes/list.html',
@@ -228,6 +232,11 @@ app.run(['$rootScope', '$location', '$http', '$uibModal', 'httpBuffer', 'OAuth',
                 }
             }
         });
+
+        $rootScope.$on('$routeChangeSuccess', function(event, current, previous) {
+          $rootScope.pageTitle = current.$$route.title;
+        });
+
         $rootScope.$on('oauth:error', function(event, data) {
             // Ignore `invalid_grant` error - should be catched on `LoginController`.
             if ('invalid_grant' === data.rejection.data.error) {

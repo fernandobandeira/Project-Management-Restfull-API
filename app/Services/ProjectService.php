@@ -51,7 +51,7 @@ class ProjectService
         }
     }
 
-    public function userProjects($user_id)
+    public function userProjects($user_id, $limit)
     {
         return $this->repository->scopeQuery(
             function ($query) use ($user_id) {
@@ -60,6 +60,6 @@ class ProjectService
                     ->where('project_members.member_id', '=', $user_id)
                     ->orWhere('owner_id', '=', $user_id);
             }
-        )->paginate();
+        )->paginate($limit);
     }
 }

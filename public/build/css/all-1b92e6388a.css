@@ -2816,7 +2816,7 @@ h3,
       background: #030303;
       color: #FFFFFD; }
   .header-global .userinfo {
-    display: block;
+    display: inline-block;
     margin: 4px;
     padding: 0 10px;
     color: #D9D7D8;
@@ -2987,6 +2987,7 @@ only screen and (min-device-pixel-ratio : 1.5) {
 
 
 /*# sourceMappingURL=app.css.map*/
+
 @charset "UTF-8";
 
 /*!

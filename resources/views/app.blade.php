@@ -7,10 +7,10 @@
     <title>Codeproject</title>
 
     @if(Config::get('app.debug'))
-        <link href="{{ asset('build/css/app.css') }}" rel="stylesheet" />
-        <link href="{{ asset('build/css/components.css') }}" rel="stylesheet" />
-        <link href="{{ asset('build/css/flaticon.css') }}" rel="stylesheet" />
         <link href="{{ asset('build/css/font-awesome.css') }}" rel="stylesheet" />
+        <link href="{{ asset('build/css/flaticon.css') }}" rel="stylesheet" />
+        <link href="{{ asset('build/css/components.css') }}" rel="stylesheet" />
+        <link href="{{ asset('build/css/app.css') }}" rel="stylesheet" />
     @else
         <link href="{{ elixir('css/all.css') }}" rel="stylesheet" />
     @endif
@@ -31,6 +31,16 @@
 
 <div ng-view></div>
 
+<footer class="footer-global">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="text-center">&copy; Fernando H. Bandeira - 2016</div>
+            </div>
+        </div>
+    </div>
+</footer>
+
 @if(Config::get('app.debug'))
     <script src="{{ asset('build/js/vendor/jquery.min.js') }}"></script>
     <script src="{{ asset('build/js/vendor/angular.min.js') }}"></script>
@@ -39,7 +49,6 @@
     <script src="{{ asset('build/js/vendor/angular-animate.min.js') }}"></script>
     <script src="{{ asset('build/js/vendor/angular-messages.min.js') }}"></script>
     <script src="{{ asset('build/js/vendor/ui-bootstrap-tpls.min.js') }}"></script>
-    <script src="{{ asset('build/js/vendor/navbar.min.js') }}"></script>
     <script src="{{ asset('build/js/vendor/angular-cookies.min.js') }}"></script>
     <script src="{{ asset('build/js/vendor/query-string.js') }}"></script>
     <script src="{{ asset('build/js/vendor/angular-oauth2.min.js') }}"></script>
@@ -55,12 +64,14 @@
     <script src="{{ asset('build/js/controllers/home.js') }}"></script>
     <script src="{{ asset('build/js/controllers/menu.js') }}"></script>
 
+    <script src="{{ asset('build/js/controllers/client/clientDashboard.js') }}"></script>
     <script src="{{ asset('build/js/controllers/client/clientList.js') }}"></script>
     <script src="{{ asset('build/js/controllers/client/clientNew.js') }}"></script>
     <script src="{{ asset('build/js/controllers/client/clientShow.js') }}"></script>
     <script src="{{ asset('build/js/controllers/client/clientEdit.js') }}"></script>
     <script src="{{ asset('build/js/controllers/client/clientRemove.js') }}"></script>
 
+    <script src="{{ asset('build/js/controllers/project/projectDashboard.js') }}"></script>
     <script src="{{ asset('build/js/controllers/project/projectList.js') }}"></script>
     <script src="{{ asset('build/js/controllers/project/projectNew.js') }}"></script>
     <script src="{{ asset('build/js/controllers/project/projectShow.js') }}"></script>
@@ -91,6 +102,7 @@
     <script src="{{ asset('build/js/directives/projectFileDownload.js') }}"></script>
     <script src="{{ asset('build/js/directives/loginForm.js') }}"></script>
     <script src="{{ asset('build/js/directives/loadTemplate.js') }}"></script>
+    <script src="{{ asset('build/js/directives/menu-activated.js') }}"></script>
 
     <!-- Filters -->
     <script src="{{ asset('build/js/filters/dateBr.js') }}"></script>
