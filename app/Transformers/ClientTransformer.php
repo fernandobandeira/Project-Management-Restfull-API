@@ -26,6 +26,7 @@ class ClientTransformer extends TransformerAbstract
     {
         $transformer = new ProjectTransformer();
         $transformer->setDefaultIncludes([]);
+
         return $this->collection($client->projects, $transformer);
     }
 }
